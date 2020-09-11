@@ -134,21 +134,11 @@ export class ApiService  implements OnInit{
     return this.http.post(this.URL+"/api/songs/create",formData, { headers: reqHeader });
   }
 
-  public signUp(email, pass, name, lastname, tel, doc, nick, gender){
-    var json = {
-      "email":email,
-      "password":pass,
-      "name":name,
-      "lastname":lastname,
-      "telephone":tel,
-      "iddocument":doc,
-      "nickname":nick,
-      "gender":gender
-    }
+  public signUp(body:any){
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json'
     });
 
-    return this.http.post(this.URL+"/signup",json, { headers: reqHeader });
+    return this.http.post(this.URL+"/signup",body, { headers: reqHeader });
   }
 }

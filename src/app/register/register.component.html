@@ -32,91 +32,111 @@
                   <div class="card-header card-header-rose text-center">
                     <h4 class="card-title">Log in</h4>
                   </div>
-                  <div class="card-body "> 
-                    <span class="bmd-form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
+                    <div class="card-body "> 
+                      <span class="bmd-form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">email</i>
+                            </span>
+                          </div>
+                          <input  type="email" [(ngModel)]="bodyLogin.email" class="form-control" placeholder="Email...">
+                        </div>
+                      </span>
+                      <span class="bmd-form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">lock_outline</i>
+                            </span>
+                          </div>
+                          <input type="password" minlength="8" maxlength="16" [(ngModel)]="bodyLogin.password" class="form-control" placeholder="Contraseña...">
+                        </div>
+                      </span>
+                      <span class="bmd-form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">arrow_right_alt</i>
+                            </span>
+                            </div>
+                            <input  type="text" [(ngModel)]="bodyLogin.name" class="form-control" placeholder="Nombres...">
+                        </div>
+                      </span>
+                      <span class="bmd-form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">arrow_right_alt</i>
+                            </span>
+                            </div>
+                            <input  type="text" [(ngModel)]="bodyLogin.lastname" class="form-control" placeholder="Apellidos...">
+                        </div>
+                      </span>
+                      <span class="bmd-form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">email</i>
+                              <i class="material-icons">arrow_right_alt</i>
                           </span>
+                          </div>
+                          <input  type="number" [(ngModel)]="bodyLogin.identification" minlength="8" maxlength="12" class="form-control" placeholder="Identificación...">
                         </div>
-                        <input  type="email" [(ngModel)]="email" class="form-control" placeholder="Email...">
-                      </div>
-                    </span>
-                    <span class="bmd-form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="material-icons">lock_outline</i>
-                          </span>
-                        </div>
-                        <input type="password" [(ngModel)]="password" class="form-control" placeholder="Clave...">
-                      </div>
-                    </span>
-                    <span class="bmd-form-group">
+                      </span>
+                      <span class="bmd-form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="material-icons">arrow_right_alt</i>
                             </span>
                             </div>
-                            <input  type="text" [(ngModel)]="name" class="form-control" placeholder="Nombre...">
+                            <input  type="text" [(ngModel)]="bodyLogin.address" required class="form-control" placeholder="Dirección...">
                         </div>
-                    </span>
-                    <span class="bmd-form-group">
+                      </span>
+                      <span class="bmd-form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="material-icons">arrow_right_alt</i>
                             </span>
                             </div>
-                            <input  type="text" [(ngModel)]="lastname" class="form-control" placeholder="Apellido...">
+                            <input  type="text" [(ngModel)]="bodyLogin.city" class="form-control" placeholder="Ciudad...">
                         </div>
-                    </span>
-                    <span class="bmd-form-group">
+                      </span>
+                      <span class="bmd-form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="material-icons">arrow_right_alt</i>
                             </span>
                             </div>
-                            <input  type="number" [(ngModel)]="telephone" min="8" max="12" class="form-control" placeholder="Telefono...">
+                            <input  type="text" [(ngModel)]="bodyLogin.department" class="form-control" placeholder="Departamento...">
                         </div>
-                        </span>
-                        <span class="bmd-form-group">
+                      </span>
+                      <span class="bmd-form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="material-icons">arrow_right_alt</i>
                             </span>
                             </div>
-                            <input  type="number" [(ngModel)]="iddocument" min="8" max="12"  class="form-control" placeholder="Document...">
+                            <input  type="text" [(ngModel)]="bodyLogin.country" class="form-control" placeholder="País...">
                         </div>
-                        </span>
-                        <span class="bmd-form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="material-icons">arrow_right_alt</i>
-                                </span>
-                                </div>
-                                <input  type="text" [(ngModel)]="nickname" class="form-control" placeholder="Nombre Usuario...">
+                      </span>
+                      <span class="bmd-form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">arrow_right_alt</i>
+                            </span>
                             </div>
-                        </span>
-                        <span class="bmd-form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="material-icons">arrow_right_alt</i>
-                                </span>
-                                </div>
-                                <input  type="text" [(ngModel)]="gender" class="form-control" placeholder="Genero...">
-                            </div>
-                        </span>
-                  </div>
-                  <div class="card-footer justify-content-center">
-                    <button (click)="signUp()" class="btn btn-primary btn-round">Iniciar Sesión<div class="ripple-container"></div></button>
-                  </div>
+                            <input  type="number" [(ngModel)]="bodyLogin.telephone" min="8" max="12" class="form-control" placeholder="Teléfono...">
+                        </div>
+                      </span>
+                    </div>
+                    <div class="card-footer justify-content-center">
+                      <button (click)="signUp()" class="btn btn-primary btn-round">Iniciar Sesión<div class="ripple-container"></div></button>
+                    </div>
                 </div>
               </div>
             </div>

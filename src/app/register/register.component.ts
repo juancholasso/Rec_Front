@@ -7,16 +7,21 @@ import { Router, CanActivate } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
 
-  email
-  password
-  name
-  lastname
-  telephone
-  iddocument
-  nickname
-  gender
+  public bodyLogin:any = {
+    "name":"",
+    "lastname":"",
+    "email":"",
+    "password":"",
+    "identification":null,
+    "address":"",
+    "city":"",
+    "department":"",
+    "country":"",
+    "telephone":""
+  }
 
   constructor(private service:ApiService, public router: Router) { }
 
@@ -24,10 +29,14 @@ export class RegisterComponent implements OnInit {
   }
 
   signUp(){
-    this.service.signUp(this.email,this.password,this.name,this.lastname,this.telephone,this.iddocument,this.nickname,this.gender)
+    this.service.signUp(this.bodyLogin)
     .subscribe(
       (data)=>{
-        this.router.navigate(['login'])
+        console.log(data);
+      },
+      (err)=>{
+        console.log(err);
+        alert("error")
       }
     )
   }
