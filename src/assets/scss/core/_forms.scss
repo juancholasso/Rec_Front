@@ -25,7 +25,7 @@ form {
 //
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-.form-control{
+.form-control {
   background: $bmd-form-control-bg-repeat-y $bmd-form-control-bg-position;
   background-size: $bmd-form-control-bg-size;
   border: 0;
@@ -38,7 +38,7 @@ form {
 
   // The border bottom should be static in all states, the decorator will be animated over this.
   &:focus,
-  .bmd-form-group.mat-focused & {
+  .bmd-form-group.is-focused & {
     background-size: $bmd-form-control-bg-size-active;
     //border-bottom: $input-btn-border-width solid $input-border-color;
     transition-duration: 0.3s;
@@ -70,7 +70,7 @@ form {
   font-weight: normal;
   @extend .text-muted;
 
-  .bmd-form-group.mat-focused & {
+  .bmd-form-group.is-focused & {
     display: block;
   }
 
@@ -220,7 +220,7 @@ form {
 
 select {
   &,
-  &.form-control{
+  &.form-control {
     // Use vendor prefixes as `appearance` isn't part of the CSS spec. OSX doesn't obey the border-radius: 0 without this.
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -277,7 +277,7 @@ select {
 
 .form-control-feedback{
     position: absolute;
-    top: 0;
+    top: 4px;
     right: 0;
     z-index: 2;
     display: block;
@@ -366,70 +366,4 @@ fieldset[disabled] .form-group .form-control{
   cursor: not-allowed;
   border-bottom: 1px dotted $input-border-color;
   background-repeat: no-repeat;
-}
-
-.mat-form-field{
-  &.mat-focused{
-    .mat-form-field-ripple{
-      background-color: $brand-primary;
-    }
-    .mat-form-field-label{
-      color: $brand-primary;
-    }
-  }
-}
-
-
-.mat-form-field{
-  display: block !important;
-}
-
-.has-success{
-  .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
-  .mat-form-field-empty.mat-form-field-label{
-    color: #4caf50;
-  }
-  &.mat-focused{
-    .mat-input-underline{
-      .mat-input-ripple{
-        background-color: #4caf50;
-      }
-    }
-  }
-}
-
-.has-danger{
-  .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
-  .mat-form-field-empty.mat-form-field-label{
-    color: #f44336;
-  }
-  &.mat-focused{
-    .mat-input-underline{
-      .mat-input-ripple{
-        background-color: #f44336;
-      }
-    }
-  }
-}
-.ng-invalid{
-  &.mat-focused .mat-form-field-label{
-    color: #f44336;
-  }
-}
-
-.mat-form-field {
-  width: 100%;
-}
-
-.mat-form-field.has-success{
-  .mat-input-underline{
-    background-color: #4caf50;
-    height: 2px;
-    .mat-input-ripple{
-      background-color: #4caf50;
-    }
-  }
-  .mat-form-field-label{
-    color: #4caf50;
-  }
 }

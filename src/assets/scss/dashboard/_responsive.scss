@@ -10,7 +10,7 @@
         }
     }
 
-    .nav-open.menu-on-left .main-panel{
+    .nav-open .menu-on-left .main-panel{
         position: initial;
     }
 
@@ -20,7 +20,7 @@
     }
 
      .menu-on-left{
-        &.nav-open {
+        .nav-open &{
             .main-panel,
             .wrapper-full-page,
             .navbar-fixed > div{
@@ -98,7 +98,6 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
     }
-
 
 
     .navbar-minimize {
@@ -235,7 +234,8 @@
         }
     }
 
-    .sidebar{
+    .sidebar,
+    .off-canvas-sidebar nav .navbar-collapse{
         position: fixed;
         display: block;
         top: 0;
@@ -497,7 +497,7 @@
     .social-area.pull-right{
         float: none !important;
     }
-    .form-control+ .form-control-feedback{
+    .form-control + .form-control-feedback{
         margin-top: -8px;
     }
     .navbar-toggle:hover,.navbar-toggle:focus {

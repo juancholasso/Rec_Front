@@ -74,8 +74,8 @@
         }
     }
 
-    .mat-raised-button.btn,
-    .navbar-nav .nav-item .mat-raised-button.btn{
+    .btn,
+    .navbar-nav .nav-item .btn{
         margin-top: 0;
         margin-bottom: 0;
     }
@@ -119,6 +119,10 @@
         padding: $padding-general-y 0;
         font-weight: 300;
         margin-left: 1rem;
+    }
+
+    > .container {
+        flex: 1;
     }
 
     &.bg-primary{

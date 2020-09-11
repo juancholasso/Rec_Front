@@ -14,18 +14,6 @@
     background: $white-color;
     @include shadow-big();
 
-    .logo-img{
-        width: 42px;
-        max-height: 42px;
-
-        img{
-            width: 42px;
-            top: 13px;
-            left: 18px;
-            position: absolute;
-        }
-    }
-
     .caret{
       display: inline-block;
       width: 0;
@@ -40,10 +28,6 @@
 
     &[data-background-color="black"]{
         background-color: #191919;
-    }
-
-    &[data-background-color="red"]{
-        background-color: #e53935;
     }
 
     .sidebar-wrapper{
@@ -76,7 +60,7 @@
             [data-toggle="collapse"] ~ div > ul > li > a{
                 span{
                     display: inline-block;
-                    // @extend .animation-transition-general;
+                    @extend .animation-transition-general;
                 }
 
                 .sidebar-normal{
@@ -193,7 +177,7 @@
             display: block;
             height: auto;
             white-space: nowrap;
-            // @extend .animation-transition-general;
+            @extend .animation-transition-general;
         }
 
         i{
@@ -206,6 +190,7 @@
             color: #a9afbb;
         }
     }
+
     .nav li a,
     .nav li .dropdown-menu a{
           margin: 10px 15px 0;
@@ -216,6 +201,7 @@
           text-transform: capitalize;
           font-size: $font-paragraph - 1;
     }
+
 
     .sidebar-background{
         position: absolute;
@@ -373,14 +359,8 @@
             }
         }
     }
-    &[data-background-color="black"]{
-        @include sidebar-background-color($gray-base, $white-color);
 
-        .nav li .dropdown-menu .dropdown-item{
-          color: $white-color;
-        }
-    }
-    &[data-background-color="red"]{
+    &[data-background-color="black"]{
         @include sidebar-background-color($gray-base, $white-color);
 
         .nav li .dropdown-menu .dropdown-item{
@@ -459,17 +439,17 @@
     width: $sidebar-width;
     @include transition (0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1));
 
-    .main-content{
+    > .content{
         margin-top: 70px;
         padding: 30px 15px;
         min-height: calc(100vh - 123px);
     }
 
-    .footer{
+    > .footer{
         border-top: 1px solid #e7e7e7;
     }
 
-    .navbar{
+    > .navbar{
         margin-bottom: 0;
     }
 
@@ -574,30 +554,5 @@
                 }
             }
         }
-    }
-}
-@media screen and (min-width: 991px){
-  .hide-sidebar{
-      .sidebar{
-          @include transition-all($general-transition-time, $transition-linear);
-
-          @include transform-translate-x(-260px);
-      }
-
-      .main-panel{
-          width: 100%;
-      }
-
-      &.sidebar-mini{
-
-          .sidebar{
-            @include transition-all($general-transition-time, $transition-linear);
-
-              @include transform-translate-x(-80px);
-          }
-      }
-  }
-  .animation{
-      @include transition-all($general-transition-time, $transition-linear);
     }
 }

@@ -30,11 +30,10 @@
       width: 100%;
     }
 
-    .mat-button.close{
-      padding: 0;
-      margin: 0 0 0 auto;
-      min-width: auto;
-      line-height: inherit;
+    .close{
+      position: absolute;
+      top: 15px;
+      right: 20px;
     }
   }
   // Modal body

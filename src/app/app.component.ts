@@ -1,26 +1,62 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Component, NgModule } from '@angular/core';
+import { ApiService } from './services/api.service';
+import { Router, CanActivate } from '@angular/router';
 
 @Component({
-    selector: 'app-my-app',
-    templateUrl: './app.component.html'
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
+export class AppComponent {
+  title = 'FrontendInalambria';
 
-export class AppComponent implements OnInit {
-  private _router: Subscription;
+  public isLogged:boolean = false;
+  private localStorageService;
+  email:string = '';
+  password:string = '';
+  user:any;
 
-  constructor( private router: Router ) {
+  constructor(private service:ApiService) {
+    var user = localStorage.getItem("isLogged");
+    if(user == "true"){
+      this.isLogged = true;
+    }
+    else{
+      this.isLogged = false;
+    }
   }
 
-    ngOnInit() {
-      this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
-        const body = document.getElementsByTagName('body')[0];
-        const modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
-        if (body.classList.contains('modal-open')) {
-          body.classList.remove('modal-open');
-          modalBackdrop.remove();
-        }
-      });
-    }
+  public login(){
+    // console.log(this.email)
+    // console.log(this.password)
+    // this.service.makeLogin(this.email, this.password).subscribe(
+    //   (data:any)=>{
+    //     localStorage.setItem("token", data.token);
+    //     localStorage.setItem("isLogged", "true");
+    //     this.isLogged = true;
+    //     this.user = data.user;
+    //   },
+    //   (err)=>{
+    //     console.log(err)
+    //   }
+    // )
+  }
+
+  public logout(){
+    // this.service.makeLogout().subscribe(
+    //   (data:any)=>{
+    //     localStorage.clear();
+    //     this.isLogged = false;
+    //   },
+    //   (err)=>{
+    //     localStorage.clear();
+    //     this.isLogged = false;
+    //   }
+    // )
+  }
+  
+
+  ngOnInit(): void {
+  }
+
 }

@@ -1,15 +1,12 @@
-.mat-button.btn,.mat-raised-button.btn,.mat-raised-button.btn:not([class*=mat-elevation-z]),
 .btn{
   position: relative;
   padding: 12px 30px;
   margin: $bmd-btn-margin-bottom 1px;
-  min-width: auto;
   font-size: .75rem; //  12px
   font-weight: 400;
   line-height: $bmd-line-height;
   text-decoration: none;
   text-transform: uppercase;
-  vertical-align: middle;
   letter-spacing: 0;
   cursor: pointer;
   background-color: transparent;
@@ -80,10 +77,6 @@
 
   &.btn-round {
     border-radius: $border-radius-extreme;
-
-    > .mat-button-focus-overlay, .mat-button-ripple{
-      border-radius: $border-radius-extreme;
-    }
   }
 
   &.btn-fab,
@@ -174,8 +167,8 @@
     }
 
 // Disabled buttons and button groups
-.mat-raised-button.btn,
-.input-group-btn .mat-raised-button.btn,
+.btn,
+.input-group-btn .btn,
 .btn-group,
 .btn-group-vertical {
   // have to ratchet up the specificity to kill drop shadows on disabled raised buttons
@@ -212,9 +205,9 @@
     @include box-shadow($bmd-shadow-2dp);
   }
 
-  .mat-raised-button.btn + .mat-raised-button.btn,
-  .mat-raised-button.btn,
-  .mat-raised-button.btn:active,
+  .btn + .btn,
+  .btn,
+  .btn:active,
   .btn-group {
     margin: 0;
   }
@@ -223,22 +216,4 @@
   > .btn-group {
     margin: 0;
   }
-
-}
-.btn-group > .mat-raised-button.btn:not(:first-child), .btn-group > .btn-group:not(:first-child) > .mat-raised-button.btn,
-
-.btn-group > .mat-raised-button.btn:not(:first-child) .mat-button-ripple, .btn-group > .btn-group:not(:first-child) > .mat-raised-button.btn .mat-button-ripple,
-
-.btn-group > .mat-raised-button.btn:not(:first-child) .mat-button-focus-overlay, .btn-group > .btn-group:not(:first-child) > .mat-raised-button.btn .mat-button-focus-overlay{
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-.btn-group > .mat-raised-button.btn:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-group:not(:last-child) > .mat-raised-button.btn,
-.btn-group > .mat-raised-button.btn:not(:last-child):not(.dropdown-toggle) .mat-button-ripple, .btn-group > .btn-group:not(:last-child) > .mat-raised-button.btn .mat-button-ripple,
-.btn-group > .mat-raised-button.btn:not(:last-child):not(.dropdown-toggle) .mat-button-focus-overlay, .btn-group > .btn-group:not(:last-child) > .mat-raised-button.btn .mat-button-focus-overlay {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-.btn-no-ripple .mat-button-ripple{
-  display: none;
 }

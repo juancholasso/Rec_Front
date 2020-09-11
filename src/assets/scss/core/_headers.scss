@@ -1,6 +1,6 @@
 .page-header{
     height: 100%;
-    min-height: stretch;
+    min-height: -webkit-fill-available;
     background-position: center center;
     background-size: cover;
     margin: 0;
@@ -56,11 +56,8 @@
     }
 
     .container{
-        z-index: 3;
-        position: relative;
-    }
-    .footer .container{
         z-index: 2;
+        position: relative;
     }
 }
 .clear-filter::before {

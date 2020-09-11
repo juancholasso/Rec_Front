@@ -4,9 +4,6 @@
        font-size: $font-size-h5;
        font-weight: $font-weight-light;
    }
-   > thead > tr:first-child > th{
-     border-top: none;
-   }
 
    .tab-pane &{
         tbody > tr > td:first-child{
