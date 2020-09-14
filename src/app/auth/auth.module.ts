@@ -1,0 +1,24 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthRoutingModule } from './auth.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+@NgModule({
+  declarations: [
+    LoginComponent,
+    RegisterComponent
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    AuthRoutingModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    SweetAlert2Module,
+  ]
+})
+export class AuthModule { }

@@ -1,0 +1,164 @@
+<div class="off-canvas-sidebar register-page">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-primary navbar-transparent navbar-absolute" color-on-scroll="500">
+    <div class="container">
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="#pablo">Reproductor</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbar">
+        <ul class="navbar-nav">
+          <li class="nav-item ">
+            <a routerLink="/login" class="nav-link" >
+              <i class="material-icons">login</i> Inicia Sesión
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper wrapper-full-page">
+    <div class="page-header register-page header-filter" filter-color="black" style="background-image: url('../../assets/img/login.jpg'); display: flex; background-size: cover; background-position: top center;">
+      <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+      <div class="container">
+        <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+          <div class="card card-register">
+            <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+              <div class="card-header card-header-rose text-center">
+                <h4 class="card-title">Regístrate</h4>
+              </div>
+                <div class="card-body "> 
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">email</i>
+                        </span>
+                      </div>
+                      <input type="email" formControlName="email" class="form-control" placeholder="Email...">
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">lock_outline</i>
+                        </span>
+                      </div>
+                      <input type="password" minlength="8" maxlength="16" formControlName="password" class="form-control" placeholder="Contraseña...">
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="material-icons">accessibility</i>
+                        </span>
+                        </div>
+                        <input type="text" formControlName="name" class="form-control" placeholder="Nombres...">
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="material-icons">accessibility</i>
+                        </span>
+                        </div>
+                        <input type="text" formControlName="lastname" class="form-control" placeholder="Apellidos...">
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <i class="material-icons">assignment_ind</i>
+                      </span>
+                      </div>
+                      <input type="number" formControlName="identification" minlength="8" maxlength="12" class="form-control" placeholder="Identificación...">
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="material-icons">home</i>
+                        </span>
+                        </div>
+                        <input type="text" formControlName="address" required class="form-control" placeholder="Dirección...">
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                          <span class="input-group-text">
+                              <i class="material-icons">public</i>
+                          </span>
+                          </div>
+                          <input type="text" disabled formControlName="country" class="form-control" placeholder="País...">
+                      </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="material-icons">domain</i>
+                        </span>
+                      </div>
+                      <div>
+                        <select formControlName="department" class="form-control" data-style="btn btn-primary btn-round" (change)="loadCities()" data-size="7">
+                          <option selected value="" disabled>Seleccione Departamento   </option>
+                          <option *ngFor="let department of departaments" value="{{department}}">{{department}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="material-icons">location_city</i>
+                        </span>
+                      </div>
+                      <div>
+                        <select formControlName="city" class="form-control" data-style="btn btn-primary btn-round" data-size="7">
+                          <option selected value="" disabled>Seleccione Ciudad   </option>
+                          <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+                        </select>
+                      </div>                    
+                    </div>
+                  </span>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <i class="material-icons">local_phone</i>
+                      </span>
+                      </div>
+                      <input type="number" formControlName="telephone" minlength="8" maxlength="14" class="form-control" placeholder="Teléfono...">
+                    </div>
+                  </span>
+              </div>
+              <div class="card-footer justify-content-center">
+                <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary btn-round">Enviar<div class="ripple-container"></div></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <footer class="footer ">
+        <div class="container">
+          <div class="copyright pull-right">
+            By Juancholasso, ACRM <3
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
