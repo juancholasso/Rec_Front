@@ -10,7 +10,7 @@ import { RegisterComponent } from './register/register.component';
 
 const authRoutes: Routes = [
   {
-      path: 'login',
+      path: '',
       //loadChildren: () => import('./login/login.component').then(m => m.LoginComponent)
       component: LoginComponent
   },

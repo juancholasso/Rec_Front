@@ -260,12 +260,16 @@
             width: 100%;
         }
         &::before{
+            background-image: url(assets/img/sidebar-2.jpg) !important;
+            background-size: cover;
+            color: black;
+            background-blend-mode: multiply;
             top: 0;
             left: 0;
             height: 100%;
             width: 100%;
             position: absolute;
-            background-color: #282828;
+            // background-color: #282828;
             display: block;
             content: "";
             z-index: 1;

@@ -25,14 +25,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let song of songs">
-                            <td>{{song.name}}</td>
-                            <td class="td-actions text-center">
-                              <mat-basic-audio-player [audioUrl]="URLSONGS+song.url" [title]="msbapTitle" [autoPlay]="false" muted="muted" (trackEnded)="onEnded($event)"
-                              [displayTitle]="msbapDisplayTitle" [displayVolumeControls]="msaapDisplayVolumeControls" ></mat-basic-audio-player>
-                            </td>
-                          </tr>
-                      </tbody>
+                     
                     </table>
                   </div>
                 </div>

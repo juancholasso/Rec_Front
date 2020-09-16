@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { Router, CanActivate } from '@angular/router';
 
 @Component({
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   public logout(){
     localStorage.clear();
     this.router.navigate(['login']);
-    this.service.makeLogout();
+    // this.service.makeLogout();
   }
 
   public navigateTo(path:string){

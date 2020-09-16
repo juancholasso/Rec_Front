@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { Router, CanActivate } from '@angular/router';
 
 @Component({
@@ -23,12 +23,12 @@ export class HomeComponent implements OnInit {
   }
 
   public getSongs(){
-    this.service.getSongs().subscribe(
-      (data:any)=>{
-        this.songs = data.song;
-        console.log(this.songs)
-      }
-    )
+    // this.service.getSongs().subscribe(
+    //   (data:any)=>{
+    //     this.songs = data.song;
+    //     console.log(this.songs)
+    //   }
+    // )
   }
 
 }

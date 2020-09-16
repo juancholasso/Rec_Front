@@ -4,8 +4,9 @@ import { SweetAlertService } from '../../services/template/sweetalert.service';
 import { Router, CanActivate } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
-import ColombiaJson from '../../../assets/js/places/colombia.min.json';
-import DepartamentosJson from '../../../assets/js/places/departamentos.json';
+// import * as ColombiaJson from '../../../assets/js/places/colombia.min.json';
+// import * as DepartamentosJson from '../../../assets/js/places/departamentos.json';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,8 @@ export class RegisterComponent implements OnInit {
 
   public select_cities: string = '';;
   public registerForm: FormGroup;
-  public departaments:any = DepartamentosJson;
+  public colombiaJson:any;
+  public departaments:any ;
   public cities:any = [];
   @ViewChild("select_city") myButton: ElementRef;
 
@@ -28,8 +30,15 @@ export class RegisterComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private sweetAlert: SweetAlertService,
     private cdr: ChangeDetectorRef,
+    private httpClient: HttpClient
   )
   { 
+    this.httpClient.get("assets/js/places/colombia.min.json").subscribe(data =>{
+      this.colombiaJson = data;
+    });
+    this.httpClient.get("assets/js/places/departamentos.json").subscribe(data =>{
+      this.departaments = data;
+    });
     this.registerForm = this.formBuilder.group({
       name: ['',  [Validators.required, Validators.maxLength(100)]],
       lastname: ['',  [Validators.required, Validators.maxLength(100)]],
@@ -45,14 +54,12 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.registerForm.controls['department']
-    console.log(ColombiaJson);
   }
 
   public loadCities(){
     this.spinner.show();
     var department = this.registerForm.value.department;
-    for(var depto of ColombiaJson){
+    for(var depto of this.colombiaJson){
       if(depto.departamento == department){
         this.cities = depto.ciudades;
       }
