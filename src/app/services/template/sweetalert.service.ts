@@ -5,10 +5,9 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class SweetAlertService extends Service{
+export class SweetAlertService {
 
   constructor() {
-    super();
   }
 
   public showBasicSwal(title, buttonsStyling, confirmButtonClass){
@@ -29,6 +28,28 @@ export class SweetAlertService extends Service{
             buttonsStyling: buttonsStyling,
             confirmButtonClass: confirmButtonClass,
             type: type
+        })
+    }catch(err){}
+  }
+
+  public showAnswerSwal(title, text, cancelText, confirmText, type, callback){
+    try{
+        swal({
+          title: title,
+            text: text,
+            type: type,
+            showCancelButton: true,
+            confirmButtonText: confirmText,
+            cancelButtonText: cancelText,
+            confirmButtonClass: "btn btn-success",
+            cancelButtonClass: "btn btn-danger",
+            buttonsStyling: false
+        }).then(function() {
+          callback(true);
+        }, function(dismiss) {
+          if (dismiss === 'cancel') {
+            callback(false);
+          }
         })
     }catch(err){}
   }

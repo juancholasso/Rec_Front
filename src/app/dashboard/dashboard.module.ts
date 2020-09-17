@@ -1,33 +1,30 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from '../app-routing.module';
-import { AppComponent } from '../app.component';
 import { FormsModule, FormGroup, FormBuilder, Validators  } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { ApiService } from '../services/api.service';
-import { SweetAlertService } from '../services/template/sweetalert.service';
-import { AuthGuardService } from '../services/auth-guard.service';
-import { NgxAudioPlayerModule } from 'ngx-audio-player';
 import { ReactiveFormsModule} from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
 import { DashboardRoutingModule } from './dashboard.routing';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { LayoutComponent } from './layout/layout.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
+    LayoutComponent,
     HeaderComponent,
     FooterComponent,
     NavbarComponent,
-    HomeComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    NgxSpinnerModule,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class DashboardModule { }

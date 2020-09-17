@@ -5,7 +5,6 @@ import { RegisterComponent } from './register/register.component';
 import { AuthRoutingModule } from './auth.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AuthRoutingModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    SweetAlert2Module,
   ]
 })
 export class AuthModule { }

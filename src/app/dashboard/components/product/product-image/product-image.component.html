@@ -1,0 +1,36 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4" style="display: grid;
+                align-content: flex-end;
+                margin-bottom: 30px;">
+                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                            <img src="../../assets/img/image_placeholder.jpg" alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <div>
+                            <span class="btn btn-rose btn-round btn-file">
+                                <span class="fileinput-new">Cargar Nueva Imágen</span>
+                                <input type="file" name="..." />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div *ngFor="let image of images" class="col-sm-4" style="display: grid;
+                align-content: flex-end;
+                margin-bottom: 30px;">
+                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+                            <img src="{{URL+'/'+image.path}}" alt="...">
+                        </div>
+                        <div>
+                            <button (click)="deleteImage(image.id)" class="btn btn-danger btn-round" data-dismiss="fileinput"><i class="fa fa-times"></i> Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

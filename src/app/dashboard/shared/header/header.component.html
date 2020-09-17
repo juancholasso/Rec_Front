@@ -1,10 +1,5 @@
 <div class="sidebar" data-color="rose" style="background-image: url(assets/img/sidebar-2.jpg);
 background-size: cover; color: black; background-blend-mode: multiply;" data-background-color="black" data-image="assets/img/sidebar-2.jpg">
-  <!--
-    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-    Tip 2: you can also add an image using data-image tag
--->
   <div class="logo">
     <a href="http://www.creative-tim.com" class="simple-text logo-mini">
       CT
@@ -50,6 +45,78 @@ background-size: cover; color: black; background-blend-mode: multiply;" data-bac
       </div>
     </div>
     <ul class="nav">
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="collapse" href="#productTypes">
+          <i class="material-icons">title</i>
+          <p>Tipos de Producto
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="productTypes">
+          <ul class="nav">
+            <li class="nav-item ">
+              <a class="nav-link" [routerLink]="['/typeproduct/create']">
+                <span class="sidebar-mini"> C </span>
+                <span class="sidebar-normal"> Crear </span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" [routerLink]="['/typeproduct']">
+                <span class="sidebar-mini"> L </span>
+                <span class="sidebar-normal"> Listar </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="collapse" href="#provider">
+          <i class="material-icons">storefront</i>
+          <p>Proveedores
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="provider">
+          <ul class="nav">
+            <li class="nav-item ">
+              <a class="nav-link" [routerLink]="['/provider/create']">
+                <span class="sidebar-mini"> C </span>
+                <span class="sidebar-normal"> Crear </span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" [routerLink]="['/provider']">
+                <span class="sidebar-mini"> L </span>
+                <span class="sidebar-normal"> Listar </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="collapse" href="#product">
+          <i class="material-icons">shopping_basket</i>
+          <p>Productos
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="product">
+          <ul class="nav">
+            <li class="nav-item ">
+              <a class="nav-link" [routerLink]="['/product/create']">
+                <span class="sidebar-mini"> C </span>
+                <span class="sidebar-normal"> Crear </span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" [routerLink]="['/product']">
+                <span class="sidebar-mini"> L </span>
+                <span class="sidebar-normal"> Listar </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
       <li class="nav-item ">
         <a class="nav-link" href="./dashboard.html">
           <i class="material-icons">dashboard</i>

@@ -1,0 +1,33 @@
+import { Injectable } from '@angular/core';
+import { Service } from './service.service';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService extends Service{
+
+  constructor(public http: HttpClient) { 
+    super(http);
+  }
+
+  public getProduct(id:number){
+    return this.http.get(this.URL+"/api/product/"+id, this.httpOptionsAuth);
+  }
+
+  public getProducts(page:number){
+    return this.http.get(this.URL+"/api/product?p="+page, this.httpOptionsAuth);
+  }
+
+  public createProduct(body:any){
+    return this.http.post(this.URL+"/api/product/create", body, this.httpOptionsAuth);
+  }
+
+  public editProduct(body:any){
+    return this.http.put(this.URL+"/api/product/update", body, this.httpOptionsAuth);
+  }
+  
+  public deleteProduct(id:Number){
+    return this.http.delete(this.URL+"/api/product/"+id, this.httpOptionsAuth);
+  }
+}

@@ -2,11 +2,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 
-// import { PricingComponent } from './pricing/pricing.component';
-// import { LockComponent } from './lock/lock.component';
-// import { LoginComponent } from './login/login.component';
-
-
 const authRoutes: Routes = [
   {
       path: '',

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient} from '@angular/common/http';
 import { Service } from './service.service';
 
 @Injectable({
@@ -9,16 +8,11 @@ import { Service } from './service.service';
 })
 export class ApiService extends Service implements OnInit{
 
-  public URL:string = "http://localhost:8000";
-  private token:string;
-
-  constructor(private http: HttpClient) {
-    super();
-    this.token = localStorage.getItem("session");
+  constructor(public http: HttpClient) {
+    super(http);
   }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem("session");
   }
 
   getToken(): void {

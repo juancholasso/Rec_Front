@@ -1,0 +1,50 @@
+<ngx-spinner></ngx-spinner>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Tipos de Producto</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="text-center">ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th class="text-right">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let typeProduct of typeProducts">
+                    <td class="text-center">{{typeProduct.id}}</td>
+                    <td>{{typeProduct.name}}</td>
+                    <td>{{typeProduct.description}}</td>
+                    <td class="td-actions text-right">
+                      <a type="button" rel="tooltip" class="btn btn-success" [routerLink]="['/typeproduct/edit/', typeProduct]">
+                        <i class="material-icons">edit</i>
+                      </a>
+                      <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteTypeProduct(typeProduct.id)">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end content-->
+        </div>
+        <!--  end card  -->
+      </div>
+      <!-- end col-md-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+</div>
