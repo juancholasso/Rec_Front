@@ -1,0 +1,204 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="col-md-8 mr-auto ml-auto">
+            <!--      Wizard container        -->
+            <div class="wizard-container">
+              <div class="card card-wizard" data-color="rose" id="wizardProfile">
+                  <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                  <form>
+                  <div class="card-header text-center">
+                    <h3 class="card-title">
+                      Generación de Cita
+                    </h3>
+                    <h5 class="card-description">Aquí podrá generar la solicitud de recolección.</h5>
+                  </div>
+                  <div class="wizard-navigation">
+                    <ul class="nav nav-pills">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#about" data-toggle="tab" role="tab">
+                          Fecha
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#account" data-toggle="tab" role="tab">
+                          Lugar
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#address" data-toggle="tab" role="tab">
+                          Confirmación
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="about">
+                        <h5 class="info-text"> Primero selecciona la fecha y franja horaria que deseas</h5>
+                        <div class="row justify-content-center">
+                          <div class="col-md-12">
+                            <div class="card ">
+                              <div class="card-header card-header-rose card-header-text">
+                                <div class="card-icon">
+                                  <i class="material-icons">today</i>
+                                </div>
+                                <h4 class="card-title">Fecha para la recolección</h4>
+                              </div>
+                              <div class="card-body ">
+                                <div class="form-group">
+                                  <mat-form-field appearance="fill">
+                                    <input (click)="openDatePicker()" style="width: auto; display: inline;" placeholder="Seleccione la fecha" class="form-control" matInput [matDatepicker]="picker" [(ngModel)]="date" name="date" required>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>    
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-12">
+                            <div class="card ">
+                              <div class="card-header card-header-rose card-header-text">
+                                <div class="card-icon">
+                                  <i class="material-icons">today</i>
+                                </div>
+                                <h4 class="card-title">Franja Horaria</h4>
+                              </div>
+                              <div class="card-body ">
+                                <select class="form-control" [(ngModel)]="zone" required data-style="btn btn-primary btn-round" name="zone" data-size="7">
+                                  <option selected value="" disabled>Seleccione la franja</option>
+                                  <option value="08:00:00,10:00:00">8:00 AM - 10:00 AM </option>
+                                  <option value="10:00:00,12:00:00">10:00 AM - 12:00 PM </option>
+                                  <option value="12:00:00,14:00:00">12:00 PM - 02:00 PM </option>
+                                  <option value="14:00:00,16:00:00">02:00 PM - 04:00 PM </option>
+                                  <option value="16:00:00,18:00:00">04:00 PM - 06:00 PM </option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="account">
+                        <h5 class="info-text">¿Donde se realizará la recolección?</h5>
+                        <div class="row justify-content-center">
+                          <div class="col-lg-10">
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <div class="choice" data-toggle="wizard-radio">
+                                  <input type="radio" name="jobb" required value="current">
+                                  <div class="icon" (click)="changeOption(0)">
+                                    <i class="fa fa-home"></i>
+                                  </div>
+                                  <h6>Dirección Registrada</h6>
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="choice" data-toggle="wizard-radio">
+                                  <input type="radio" name="jobb" required value="new">
+                                  <div class="icon" (click)="changeOption(1)">
+                                    <i class="fa fa-plus"></i>
+                                  </div>
+                                  <h6>Otra Dirección</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div *ngIf="option == 1" class="row justify-content-center">
+                          <div class="col-sm-12">
+                            <h5 class="info-text"> Nueva Dirección </h5>
+                          </div>
+                          <div class="col-sm-12">
+                            <div class="">
+                              <label>Dirección</label>
+                              <input [(ngModel)]="address" name="address" maxlength="40" type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Departamento</label>
+                              <select [(ngModel)]="department" name="department" class="form-control" data-style="btn btn-primary btn-round" (change)="loadCities($event.target.value)" data-size="7">
+                                <option selected value="" disabled>Seleccione Departamento   </option>
+                                <option *ngFor="let d of departaments" value="{{d}}">{{d}}</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Ciudad</label>
+                              <select [(ngModel)]="city" name="city" class="form-control" data-style="btn btn-primary btn-round" data-size="7">
+                                <option selected value="" disabled>Seleccione Ciudad   </option>
+                                <option *ngFor="let cityT of cities" value="{{cityT}}">{{cityT}}</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm-12">
+                            <div class="">
+                              <label>Teléfono</label>
+                              <input [(ngModel)]="telephone" name="telephone" type="number" minlength="8" maxlength="14" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="address">
+                        <form [formGroup]="createForm" (ngSubmit)="createSchedule(createForm)">
+                          <div class="col-sm-12">
+                            <div class="">
+                              <label>Dirección</label>
+                              <input formControlName="address" name="address" disabled type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="">
+                              <label>Ciudad</label>
+                              <input formControlName="city" name="city" disabled type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="">
+                              <label>Departamento</label>
+                              <input formControlName="department" name="department" disabled type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-sm-12">
+                            <div class="">
+                              <label>Teléfono</label>
+                              <input formControlName="telephone" name="telephone" disabled type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="">
+                              <label>Fecha - Inicio</label>
+                              <input formControlName="startdate" name="startdate" disabled type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="">
+                              <label>Fecha - Fin</label>
+                              <input formControlName="enddate" name="enddate" disabled type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="row col-sm-6">
+                            <div class="card-footer justify-content-center">
+                              <button type="submit" [disabled]="createForm.invalid" class="btn btn-primary btn-round">Crear Cita<div class="ripple-container"></div></button>
+                            </div>
+                          </div>
+                        </form>                         
+                      </div>
+                    </div>
+                  </div>
+                  </form>
+                  <div class="card-footer">
+                    <div class="mr-auto">
+                      <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Regresar">
+                    </div>
+                    <div class="ml-auto">
+                      <input type="button" (click)="loadForm()" class="btn btn-next btn-fill btn-rose btn-wd" name="next" value="Siguiente">
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+              </div>
+            </div>
+            <!-- wizard container -->
+          </div>
+    </div>
+</div>

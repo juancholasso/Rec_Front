@@ -10,26 +10,16 @@ import { RegisterComponent } from './register/register.component';
 
 const authRoutes: Routes = [
   {
-      path: '',
-      //loadChildren: () => import('./login/login.component').then(m => m.LoginComponent)
-      component: LoginComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'register',
-    //loadChildren: () => import('./login/login.component').then(m => m.LoginComponent)
     component: RegisterComponent
-  }
-        // , {
-        //     path: 'lock',
-        //     component: LockComponent
-        // }, {
-        //     path: 'register',
-        //     component: RegisterComponent
-        // }, {
-        //     path: 'pricing',
-        //     component: PricingComponent
-        // }
-    
+  },
+  { 
+    path: '',  redirectTo: 'login', pathMatch: 'full' 
+  }  
 ];
 @NgModule({
     imports: [RouterModule.forChild(authRoutes)],

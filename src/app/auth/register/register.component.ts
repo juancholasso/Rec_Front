@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { AuthService } from '../../services/auth.service';
 import { SweetAlertService } from '../../services/template/sweetalert.service';
 import { Router, CanActivate } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,10 +21,9 @@ export class RegisterComponent implements OnInit {
   public colombiaJson:any;
   public departaments:any ;
   public cities:any = [];
-  @ViewChild("select_city") myButton: ElementRef;
 
   constructor(
-    private service:ApiService, 
+    private service:AuthService, 
     private router: Router,
     private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService,
@@ -62,6 +61,7 @@ export class RegisterComponent implements OnInit {
     for(var depto of this.colombiaJson){
       if(depto.departamento == department){
         this.cities = depto.ciudades;
+        this.spinner.hide();
       }
     }
   }
@@ -71,11 +71,13 @@ export class RegisterComponent implements OnInit {
     this.service.registerRequest(this.registerForm.value)
     .subscribe(
       (data)=>{
+        this.router.navigate(['login']);
         this.sweetAlert.showBasicSwal(
           "¡Registro Exitoso!",
           "btn btn-success",
           "success"
         );
+        this.spinner.hide();
       },
       (err)=>{
         console.log(err);
@@ -140,7 +142,7 @@ export class RegisterComponent implements OnInit {
           }
         }
         else if(err.error[0].telephone != undefined){
-          if(err.error[0].telephone[0] == "password_regex"){
+          if(err.error[0].telephone[0] == "telephone_used"){
             this.sweetAlert.showBasicInfoSwal(
               "¡Error al registrarse!",
               "El teléfono ingresado ya está en uso",

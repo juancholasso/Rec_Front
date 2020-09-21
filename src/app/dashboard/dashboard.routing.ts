@@ -22,6 +22,11 @@ const authRoutes: Routes = [
     path: 'product',
     component: LayoutComponent,
     loadChildren: () => import('./components/product/product.module').then(m => m.ProductModule)
+  },
+  {
+    path: 'recycle',
+    component: LayoutComponent,
+    loadChildren: () => import('./components/recycle/recycle.module').then(m => m.RecycleModule)
   }
 ];
 @NgModule({

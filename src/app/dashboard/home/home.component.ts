@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { AuthService } from '../../services/auth.service';
 import { Router, CanActivate } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   public msbapDisplayVolumeControls = true;  
   public URLSONGS:string = this.service.URL+"/public/uploads/songs/";
 
-  constructor(private service:ApiService, public router: Router) { }
+  constructor(private service:AuthService, public router: Router) { }
 
   ngOnInit(): void {
     this.getSongs();

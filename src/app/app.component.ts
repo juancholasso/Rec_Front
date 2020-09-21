@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { ApiService } from './services/api.service';
+import { AuthService } from './services/auth.service';
 import { Router, CanActivate } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent {
   password:string = '';
   user:any;
 
-  constructor(private service:ApiService) {
+  constructor(private service:AuthService) {
     var user = localStorage.getItem("isLogged");
     if(user == "true"){
       this.isLogged = true;

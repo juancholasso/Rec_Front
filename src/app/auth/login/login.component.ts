@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { AuthService } from '../../services/auth.service';
 import { SweetAlertService } from '../../services/template/sweetalert.service';
 import { Router, CanActivate } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
 
   constructor(
-    private service:ApiService, 
+    private service:AuthService, 
     private router: Router,
     private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService,
@@ -36,18 +36,20 @@ export class LoginComponent implements OnInit {
 
   public async login(form:FormGroup){
     this.spinner.show();
+    localStorage.clear();
     this.service.loginRequest(form.value).subscribe(
       (data:any)=>{
         console.log(data)
-        localStorage.setItem("session", data.token);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("roles", JSON.stringify(data.roles));
+        localStorage.setItem("permissions", JSON.stringify(data.permissions));
         localStorage.setItem("user", JSON.stringify(data.user));
-        // this.service.getToken();
-        // this.router.navigate(['songs']);
+        this.router.navigate(['home']);
         this.spinner.hide();
       },
       (err:any)=>{
-        if(err.error.name == "user_not_found"){
-          this.spinner.hide();
+        console.log(err)
+        if(err.error.name == "user_not_found" || err.error.name == "password_incorrect" ){
           this.sweetAlert.showBasicInfoSwal(
             "¡Error al iniciar sesión!",
             "El usuario o contraseña no son correctos",
@@ -57,7 +59,6 @@ export class LoginComponent implements OnInit {
           );
         }
         else{
-          this.spinner.hide();
           this.sweetAlert.showBasicInfoSwal(
             "¡Ha ocurrido un error!",
             "Por favor intente más tarde",
@@ -66,11 +67,16 @@ export class LoginComponent implements OnInit {
             "warning"
           );
         }
-        console.clear();
+        this.spinner.hide();
       }
     )
-
   }
 
+
+  public async logout(){
+    this.spinner.show();
+    localStorage.clear();
+    this.router.navigate(['login']);
+  }
 
 }
