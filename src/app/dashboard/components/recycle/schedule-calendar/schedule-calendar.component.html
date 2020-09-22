@@ -1,10 +1,17 @@
+<ngx-spinner></ngx-spinner>
 <div class="content">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-10 ml-auto mr-auto">
         <div class="card card-calendar">
+            <div class="card-header card-header-rose card-header-icon">
+              <div class="card-icon">
+                  <i class="material-icons">event</i>
+              </div>
+              <h4 class="card-title">Calendario de Citas</h4>
+            </div>
           <div class="card-body ">
-            <full-calendar [options]="calendarOptions"></full-calendar>
+            <full-calendar #calendar [options]="calendarOptions"></full-calendar>
           </div>
         </div>
       </div>

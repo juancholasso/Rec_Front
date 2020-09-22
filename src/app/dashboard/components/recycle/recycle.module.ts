@@ -13,10 +13,13 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin
+import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
+import timegridP from '@fullcalendar/resource-timegrid';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  resourceTimeGridPlugin,
   dayGridPlugin,
-  interactionPlugin
+  interactionPlugin,
 ]);
 
 @NgModule({
