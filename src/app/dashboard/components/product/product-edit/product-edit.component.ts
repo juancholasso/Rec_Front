@@ -53,7 +53,6 @@ export class ProductEditComponent implements OnInit {
       state : [state, [Validators.required]],
       quantity : [quantity, [Validators.required, Validators.max(1000)]]
     });
-    
   }
 
   ngOnInit(): void {

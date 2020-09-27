@@ -53,4 +53,50 @@ export class SweetAlertService {
         })
     }catch(err){}
   }
+
+  public showTitleAndTextSwal(title, text){
+    try{
+        swal({
+          title: title,
+          text: text,
+          buttonsStyling: false,
+          confirmButtonClass: "btn btn-info"
+        })
+    }catch(err){}
+  }
+
+  public showMessageAndButtonCallbackSwal(title, text, callbackText, callback){
+    try{
+        swal({
+          title: title,
+          text: text,
+          buttonsStyling: false,
+          showCancelButton: true,
+          confirmButtonClass: "btn btn-info",
+          cancelButtonClass: 'btn btn-success',
+          cancelButtonText: callbackText,
+        }).then(function() {
+          callback(true);
+        }, function(dismiss) {
+          if (dismiss === 'cancel') {
+            callback(false);
+          }
+        });
+    }catch(err){}
+  }
+
+  public showInputSwal(title, html, confirmText, cancelText, callback){
+    swal({
+        title: title,
+        html: html,
+        showCancelButton: true,
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        confirmButtonText: confirmText,
+        cancelButtonText: cancelText,
+        buttonsStyling: false
+    }).then(function(result) {
+      callback(result)
+    })
+  }
 }

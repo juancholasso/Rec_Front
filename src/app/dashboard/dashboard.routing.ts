@@ -4,29 +4,34 @@ import { LayoutComponent } from './layout/layout.component';
 
 const authRoutes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: LayoutComponent,
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
-  },
-  {
-    path: 'typeproduct',
-    component: LayoutComponent,
-    loadChildren: () => import('./components/type-product/type-product.module').then(m => m.TypeProductModule)
-  },
-  {
-    path: 'provider',
-    component: LayoutComponent,
-    loadChildren: () => import('./components/provider/provider.module').then(m => m.ProviderModule)
-  },
-  {
-    path: 'product',
-    component: LayoutComponent,
-    loadChildren: () => import('./components/product/product.module').then(m => m.ProductModule)
-  },
-  {
-    path: 'recycle',
-    component: LayoutComponent,
-    loadChildren: () => import('./components/recycle/recycle.module').then(m => m.RecycleModule)
+    children: [
+      {
+        path: 'home',
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+      },
+      {
+        path: 'typeproduct',
+        loadChildren: () => import('./components/type-product/type-product.module').then(m => m.TypeProductModule)
+      },
+      {
+        path: 'provider',
+        loadChildren: () => import('./components/provider/provider.module').then(m => m.ProviderModule)
+      },
+      {
+        path: 'product',
+        loadChildren: () => import('./components/product/product.module').then(m => m.ProductModule)
+      },
+      {
+        path: 'recycle',
+        loadChildren: () => import('./components/recycle/recycle.module').then(m => m.RecycleModule)
+      },
+      {
+        path: 'gatherer',
+        loadChildren: () => import('./components/gatherer/gatherer.module').then(m => m.GathererModule)
+      }
+    ]
   }
 ];
 @NgModule({

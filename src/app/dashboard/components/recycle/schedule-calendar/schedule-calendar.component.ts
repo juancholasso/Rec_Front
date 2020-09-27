@@ -16,11 +16,25 @@ import esLocale from '@fullcalendar/core/locales/es';
 export class ScheduleCalendarComponent implements OnInit {
 
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
+  public OPTIONS = { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric'
+  };
 
   public schedules:any = [];
   public calendarOptions: CalendarOptions = {
       initialView: 'dayGridMonth',
       locale: esLocale,
+      eventClick: (event)=>{
+        var dateStart = new Date(event.event.start);
+        var dateStartString = dateStart.toLocaleDateString('es-CO', this.OPTIONS)+"<br>"+dateStart.toLocaleTimeString('es-CO');
+        this.sweetAlert.showTitleAndTextSwal(
+          "Cita de Recolección",
+          dateStartString
+        );
+      },
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       events: []
   };
