@@ -30,6 +30,10 @@ const authRoutes: Routes = [
       {
         path: 'gatherer',
         loadChildren: () => import('./components/gatherer/gatherer.module').then(m => m.GathererModule)
+      },
+      {
+        path: 'notification',
+        loadChildren: () => import('./components/notification/notification.module').then(m => m.NotificationModule)
       }
     ]
   }

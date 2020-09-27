@@ -1,24 +1,25 @@
+<ngx-spinner></ngx-spinner>
 <div class="content">
     <div class="container-fluid">
         <div class="card-body">
             <div class="row">
-                <div class="col-sm-4" style="display: grid;
+                <div id="div_added" class="col-sm-4" style="display: grid;
                 align-content: flex-end;
                 margin-bottom: 30px;">
                     <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail">
+                        <div id="img_default" class="fileinput-new thumbnail">
                             <img src="../../assets/img/image_placeholder.jpg" alt="...">
                         </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <div id="img_loaded" class="fileinput-preview fileinput-exists thumbnail"></div>
                         <div>
                             <span class="btn btn-rose btn-round btn-file">
-                                <span class="fileinput-new">Cargar Nueva Imágen</span>
-                                <input type="file" name="..." />
+                                <span id="span_txt_btn" class="fileinput-new">Cargar Nueva Imágen</span>
+                                <input id="new-image" type="file" name="new-image" (change)="loadImage($event)"/>
                             </span>
                         </div>
                     </div>
                 </div>
-                <div *ngFor="let image of images" class="col-sm-4" style="display: grid;
+                <div id="grid-images" *ngFor="let image of images" class="col-sm-4" style="display: grid;
                 align-content: flex-end;
                 margin-bottom: 30px;">
                     <div class="fileinput fileinput-new text-center" data-provides="fileinput">

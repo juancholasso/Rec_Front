@@ -30,4 +30,12 @@ export class ProductService extends Service{
   public deleteProduct(id:Number){
     return this.http.delete(this.URL+"/api/product/"+id, this.httpOptionsAuth);
   }
+
+  public uploadImageProduct(id:Number, body:any){
+    return this.http.post(this.URL+"/api/product/"+id+"/image", body, this.httpOptionsAuth);
+  }
+
+  public deleteImageProduct(id:Number, idimage:Number){
+    return this.http.delete(this.URL+"/api/product/"+id+"/image/"+idimage, this.httpOptionsAuth);
+  }
 }
