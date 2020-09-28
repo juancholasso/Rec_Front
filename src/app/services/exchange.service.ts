@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService extends Service{
+export class ExchangeService extends Service{
 
   constructor(public http: HttpClient) { 
     super(http);

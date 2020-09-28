@@ -1,0 +1,52 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 create-md">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">shopping_basket</i>
+                    </div>
+                    <h4 class="card-title">Finalizar Canje</h4>
+                    </div>
+                    <form [formGroup]="createForm" (ngSubmit)="createOrder(createForm)">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleEmail" class="bmd-label-floating">Cantidad</label>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div id="sliderRegular" class="slider"></div>
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="exampleEmail" class="bmd-label-floating">{{countSlider}} Unidad</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleEmail" class="bmd-label-floating">Producto</label>
+                                <input type="text" value="{{nameProduct}}" disabled class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleEmail" class="bmd-label-floating">Costo Unidad</label>
+                                <input type="text" value="{{priceProduct}} Puntos" disabled maxlength="100" class="form-control" id="name">
+                            </div>
+                        </div>
+                        <div class="alert alert-success">
+                            <span>
+                                <h5>Costo Total: </h5>
+                                <h3>{{totalPrice}} Puntos</h3>
+                            </span>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="insufficientFunds">
+                            <span>
+                                <b>No cuenta con los puntos necesarios para completar el canje. Tiene {{funds}} puntos</b></span>
+                        </div>
+                        <div class="card-footer ">
+                            <button [disabled]="createForm.invalid && insufficientFunds"  type="submit" class="btn btn-fill btn-rose">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

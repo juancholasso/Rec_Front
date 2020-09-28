@@ -3,7 +3,7 @@ import { ScheduleService } from '../../../../services/schedule.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { SweetAlertService } from '../../../../services/template/sweetalert.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-gatherer-gather',
@@ -20,16 +20,18 @@ export class GathererGatherComponent implements OnInit {
     private sweetAlert: SweetAlertService,
     private formBuilder: FormBuilder,
     private router: Router,
+    private route: ActivatedRoute
   ) 
   {
+    var iduser_client = this.route.snapshot.paramMap.get('iduser_client');
+    var iduser_recolector = this.route.snapshot.paramMap.get('iduser_recolector');
+
     this.createForm = this.formBuilder.group({
-      idproducttype: ['',  [Validators.required]],
-      idprovider: ['',  [Validators.required]],
-      name: ['',  [Validators.required, Validators.maxLength(100)]],
-      points: ['',  [Validators.required, Validators.max(1000)]],
+      iduser_client: [iduser_client,  [Validators.required]],
+      iduser_recolector: [iduser_recolector,  [Validators.required]],
       description: ['',  [Validators.required]],
-      state : ['', [Validators.required]],
-      quantity : ['', [Validators.required, Validators.max(1000)]]
+      weight: ['',  [Validators.required]],
+      state: ['finalizada',[Validators.required]]
     });
   }
 
@@ -37,7 +39,7 @@ export class GathererGatherComponent implements OnInit {
    
   }
 
-  public async createProduct(form:FormGroup){
+  public async createGather(form:FormGroup){
   }
 
 }

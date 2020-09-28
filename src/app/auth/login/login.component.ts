@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("roles", JSON.stringify(data.roles));
         localStorage.setItem("permissions", JSON.stringify(data.permissions));
         localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("points", JSON.stringify(data.points));
         this.router.navigate(['home']);
         this.spinner.hide();
       },

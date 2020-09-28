@@ -34,6 +34,10 @@ const authRoutes: Routes = [
       {
         path: 'notification',
         loadChildren: () => import('./components/notification/notification.module').then(m => m.NotificationModule)
+      },
+      {
+        path: 'exchange',
+        loadChildren: () => import('./components/exchange/exchange.module').then(m => m.ExchangeModule)
       }
     ]
   }
