@@ -32,7 +32,7 @@ export class ProductCreateComponent implements OnInit {
       idproducttype: ['',  [Validators.required]],
       idprovider: ['',  [Validators.required]],
       name: ['',  [Validators.required, Validators.maxLength(100)]],
-      points: ['',  [Validators.required, Validators.max(1000)]],
+      points: ['',  [Validators.required, Validators.max(9999)]],
       description: ['',  [Validators.required]],
       state : ['', [Validators.required]],
       quantity : ['', [Validators.required, Validators.max(1000)]]

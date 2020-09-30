@@ -16,8 +16,8 @@ export class ScheduleService extends Service{
   }
 
   //For Recolector
-  public getSchedulesAssigned(){
-    return this.http.get(this.URL+"/api/recolector/schedules", this.httpOptionsAuth);
+  public getLatestchedulesAssigned(){
+    return this.http.get(this.URL+"/api/recolector/schedules/latest", this.httpOptionsAuth);
   }
 
   //For Client

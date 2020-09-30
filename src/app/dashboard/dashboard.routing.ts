@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { LayoutComponent } from './layout/layout.component';
+import { RoleGuardService as RoleGuard } from '../services/guards/role_guard.service';
 
 const authRoutes: Routes = [
   {
@@ -13,23 +14,43 @@ const authRoutes: Routes = [
       },
       {
         path: 'typeproduct',
-        loadChildren: () => import('./components/type-product/type-product.module').then(m => m.TypeProductModule)
+        loadChildren: () => import('./components/type-product/type-product.module').then(m => m.TypeProductModule),
+        canActivate: [RoleGuard], 
+        data: { 
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'provider',
-        loadChildren: () => import('./components/provider/provider.module').then(m => m.ProviderModule)
+        loadChildren: () => import('./components/provider/provider.module').then(m => m.ProviderModule),
+        canActivate: [RoleGuard], 
+        data: { 
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'product',
-        loadChildren: () => import('./components/product/product.module').then(m => m.ProductModule)
+        loadChildren: () => import('./components/product/product.module').then(m => m.ProductModule),
+        canActivate: [RoleGuard], 
+        data: { 
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'recycle',
-        loadChildren: () => import('./components/recycle/recycle.module').then(m => m.RecycleModule)
+        loadChildren: () => import('./components/recycle/recycle.module').then(m => m.RecycleModule),
+        canActivate: [RoleGuard], 
+        data: { 
+          expectedRole: 'cliente'
+        }
       },
       {
         path: 'gatherer',
-        loadChildren: () => import('./components/gatherer/gatherer.module').then(m => m.GathererModule)
+        loadChildren: () => import('./components/gatherer/gatherer.module').then(m => m.GathererModule),
+        canActivate: [RoleGuard], 
+        data: { 
+          expectedRole: 'recolector'
+        }
       },
       {
         path: 'notification',
@@ -37,7 +58,11 @@ const authRoutes: Routes = [
       },
       {
         path: 'exchange',
-        loadChildren: () => import('./components/exchange/exchange.module').then(m => m.ExchangeModule)
+        loadChildren: () => import('./components/exchange/exchange.module').then(m => m.ExchangeModule),
+        canActivate: [RoleGuard], 
+        data: { 
+          expectedRole: 'cliente'
+        }
       }
     ]
   }

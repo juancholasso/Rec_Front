@@ -42,7 +42,7 @@
                                 <b>No cuenta con los puntos necesarios para completar el canje. Tiene {{funds}} puntos</b></span>
                         </div>
                         <div class="card-footer ">
-                            <button [disabled]="createForm.invalid && insufficientFunds"  type="submit" class="btn btn-fill btn-rose">Submit</button>
+                            <button [disabled]="insufficientFunds"  type="submit" class="btn btn-fill btn-rose">Submit</button>
                         </div>
                     </form>
                 </div>

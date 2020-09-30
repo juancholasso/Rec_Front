@@ -4,7 +4,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { SweetAlertService } from '../../../../services/template/sweetalert.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProviderService } from '../../../../services/provider.service';
+import { ExchangeService } from '../../../../services/exchange.service';
 import { TypeProductService } from '../../../../services/type-product.service';
 
 declare var noUiSlider: any;
@@ -29,7 +29,7 @@ export class ExchangeConfirmComponent implements OnInit {
 
   constructor(
     private productService:ProductService,
-    private providerService:ProviderService,
+    private exchangeService:ExchangeService,
     private typeProductService:TypeProductService,
     private spinner: NgxSpinnerService,
     private sweetAlert: SweetAlertService,
@@ -39,19 +39,13 @@ export class ExchangeConfirmComponent implements OnInit {
   ) 
   {
     this.createForm = this.formBuilder.group({
-      idproducttype: ['',  [Validators.required]],
-      idprovider: ['',  [Validators.required]],
-      name: ['',  [Validators.required, Validators.maxLength(100)]],
-      points: ['',  [Validators.required, Validators.max(1000)]],
-      description: ['',  [Validators.required]],
-      state : ['', [Validators.required]],
-      quantity : ['', [Validators.required, Validators.max(1000)]]
     });
   }
 
   ngOnInit(): void {
     var slider = document.getElementById('sliderRegular');
     var quantity = this.route.snapshot.paramMap.get('quantity');
+
     this.funds = JSON.parse(localStorage.getItem('points')).points;
     this.nameProduct = this.route.snapshot.paramMap.get('name');
     this.priceProduct = this.route.snapshot.paramMap.get('points');
@@ -87,6 +81,27 @@ export class ExchangeConfirmComponent implements OnInit {
   }
 
   public createOrder(form:FormGroup){
-
+    this.spinner.show();
+    var body ={
+      "points":this.totalPrice,
+      "products":[[this.route.snapshot.paramMap.get('id'),this.countSlider]]
+    }
+    this.exchangeService.buy(body)
+    .subscribe(
+      (data:any)=>{
+        this.spinner.hide();
+        this.router.navigate(['exchange/success', {"data":JSON.stringify(data)}]);
+      },
+      (err:any)=>{
+        this.spinner.hide();
+        this.sweetAlert.showBasicInfoSwal(
+          "¡Ha ocurrido un error!",
+          "Por favor intente más tarde",
+          false,
+          "btn btn-success",
+          "warning"
+        );
+      }
+    )
   }
 }

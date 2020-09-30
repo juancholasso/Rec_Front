@@ -1,0 +1,66 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-lg-12 cards">
+                  <div class="card card-pricing card-raised">
+                    <div class="card-body">
+                      <h6 class="card-category">Factura de Canje</h6>
+                      <div class="card-icon icon-rose">
+                        <i class="material-icons">receipt</i>
+                      </div>
+                      <h3 class="card-title">Total {{order.points}} puntos</h3>
+                      <p class="card-description">
+                        Factura # {{order.code}}
+                      </p>
+                      <table class="invoice">
+                            <tr>
+                                <td>
+                                    <p class="card-description">
+                                    Puntos
+                                    </p>
+                                </td>
+                                <td colspan="2">
+                                    <p class="card-description">
+                                    {{order.points}}
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="card-description">
+                                    Estado Pedido
+                                    </p>
+                                </td>
+                                <td colspan="2">
+                                    <p class="card-description">
+                                    {{order.state}}
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr *ngFor="let detail of order.details">
+                                <td>
+                                    <p class="card-description">
+                                        Producto: {{detail.product.name}}
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="card-description">
+                                        Cantidad: {{detail.quantity}}
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="card-description">
+                                        Token: {{detail.token}}
+                                    </p>
+                                </td>
+                            </tr>
+                      </table>
+                      <a href="#pablo" class="btn btn-rose btn-round">Choose Plan</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

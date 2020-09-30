@@ -13,6 +13,7 @@ export class ExchangeComponent implements OnInit {
 
   public products:any = [];
   public URL:String = "";
+  public points:Number = 1000;
 
   constructor(
     private exchangeService:ExchangeService,
@@ -30,10 +31,8 @@ export class ExchangeComponent implements OnInit {
     .subscribe(
       (data:any)=>{
         this.products = data.data;
-      
         console.log(this.products)
         this.spinner.hide();
-
       },
       (err)=>{
         console.log(err);

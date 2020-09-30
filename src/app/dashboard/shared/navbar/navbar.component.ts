@@ -56,6 +56,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.loadNotifications();
     this.makeResponsive();
+
+    setInterval(() => { 
+      this.loadNotifications();
+    }, 600000)
   }
 
   public makeResponsive(){
@@ -91,6 +95,7 @@ export class NavbarComponent implements OnInit {
     this.notificationService.getInboxNotification()
     .subscribe(
       (data:any)=>{
+        $('#notificationsBar').empty();
         this.countNotifications = data.length
         for(let notification of data){
           var dateNotification = notification.updated_at.split("T");

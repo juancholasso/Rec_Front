@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
-import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { AuthGuardService as AuthGuard } from './services/guards/auth_guard.service';
+
 const routes: Routes = [
   // { path: 'login', component: LoginComponent },
   // { path: 'signup', component: RegisterComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [AuthGuard] 
   }
 
 ];

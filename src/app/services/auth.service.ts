@@ -25,4 +25,11 @@ export class AuthService extends Service implements OnInit{
     var response = this.http.post(this.URL+"/signup", body, this.httpOptions)
     return response;
   }
+
+  public isAuthenticated(){
+    if(this.getToken() != null && this.getToken() != undefined){
+        return true;
+    }
+    return false;
+  }
 }

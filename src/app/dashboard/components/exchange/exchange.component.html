@@ -2,6 +2,11 @@
 <div class="content">
   <div class="container-fluid">
     <div class="row">
+      <div class="card col-sm-12">
+        <h3 class="card-category">TIENES {{points}} PUNTOS</h3>
+      </div>
+    </div>
+    <div class="row">
       <div *ngFor="let product of products" class="col-sm-4">
         <div class="col-lg-12 cards">
           <div class="card card-pricing card-raised">
@@ -12,7 +17,7 @@
               <div class="card-profile">
                 <div class="card-avatar">
                   <a href="#pablo">
-                    <img class="img" src="{{URL+'/'+product.imageprincipal}}" />
+                    <img class="img" src="{{URL+'public/'+product.imageprincipal}}" />
                   </a>
                 </div>
               </div>

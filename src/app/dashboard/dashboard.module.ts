@@ -8,6 +8,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { RoleGuardService } from '../services/guards/role_guard.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,9 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     ReactiveFormsModule,
     DashboardRoutingModule,
     NgxSpinnerModule,
+  ],
+  providers: [
+    RoleGuardService
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

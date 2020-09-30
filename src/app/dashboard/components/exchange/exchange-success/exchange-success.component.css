@@ -1,0 +1,12 @@
+.create-md{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.invoice{
+    text-align: justify;
+    margin: auto;
+    width: 50%;
+    font-size: initial;
+    resize: auto;
+}

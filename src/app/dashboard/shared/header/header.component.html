@@ -16,22 +16,16 @@ background-size: cover; color: black; background-blend-mode: multiply;" data-bac
       <div class="user-info">
         <a data-toggle="collapse" href="#collapseExample" class="username">
           <span>
-            Tania Andrew
+            {{name}}
             <b class="caret"></b>
           </span>
         </a>
         <div class="collapse" id="collapseExample">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link">
                 <i class="material-icons">face</i>
                 <span class="sidebar-normal"> Mi Perfil </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="material-icons">title</i>
-                <span class="sidebar-normal">account_circle</span>
               </a>
             </li>
             <li class="nav-item">
@@ -45,7 +39,7 @@ background-size: cover; color: black; background-blend-mode: multiply;" data-bac
       </div>
     </div>
     <ul class="nav">
-      <li class="nav-item ">
+      <li class="nav-item " *ngIf="can('admin')">
         <a class="nav-link" data-toggle="collapse" href="#productTypes">
           <i class="material-icons">title</i>
           <p>Tipos de Producto
@@ -69,7 +63,7 @@ background-size: cover; color: black; background-blend-mode: multiply;" data-bac
           </ul>
         </div>
       </li>
-      <li class="nav-item ">
+      <li class="nav-item " *ngIf="can('admin')">
         <a class="nav-link" data-toggle="collapse" href="#provider">
           <i class="material-icons">storefront</i>
           <p>Proveedores
@@ -93,7 +87,7 @@ background-size: cover; color: black; background-blend-mode: multiply;" data-bac
           </ul>
         </div>
       </li>
-      <li class="nav-item ">
+      <li class="nav-item " *ngIf="can('admin')">
         <a class="nav-link" data-toggle="collapse" href="#product">
           <i class="material-icons">shopping_basket</i>
           <p>Productos
@@ -117,7 +111,7 @@ background-size: cover; color: black; background-blend-mode: multiply;" data-bac
           </ul>
         </div>
       </li>
-      <li class="nav-item ">
+      <li class="nav-item " *ngIf="can('cliente')">
         <a class="nav-link" data-toggle="collapse" href="#recycle">
           <i class="material-icons">wifi_protected_setup</i>
           <p>Recicla
@@ -141,7 +135,7 @@ background-size: cover; color: black; background-blend-mode: multiply;" data-bac
           </ul>
         </div>
       </li>
-      <li class="nav-item ">
+      <li class="nav-item " *ngIf="can('recolector')">
         <a class="nav-link" data-toggle="collapse" href="#recolect">
           <i class="material-icons">eco</i>
           <p>Recolección
@@ -159,7 +153,7 @@ background-size: cover; color: black; background-blend-mode: multiply;" data-bac
           </ul>
         </div>
       </li>
-      <li class="nav-item ">
+      <li class="nav-item " *ngIf="can('cliente')">
         <a class="nav-link" data-toggle="collapse" href="#buy">
           <i class="material-icons">shopping_cart</i>
           <p>Canjea

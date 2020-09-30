@@ -11,31 +11,12 @@ export class ExchangeService extends Service{
     super(http);
   }
 
-  public getProduct(id:Number){
-    return this.http.get(this.URL+"/api/product/"+id, this.httpOptionsAuth);
-  }
-
   public getProducts(queries:String){
     return this.http.get(this.URL+"/api/product?"+queries, this.httpOptionsAuth);
   }
 
-  public createProduct(body:any){
-    return this.http.post(this.URL+"/api/product/create", body, this.httpOptionsAuth);
+  public buy(body:any){
+    return this.http.post(this.URL+"/api/store/buy", body, this.httpOptionsAuth);
   }
 
-  public editProduct(body:any){
-    return this.http.put(this.URL+"/api/product/update", body, this.httpOptionsAuth);
-  }
-  
-  public deleteProduct(id:Number){
-    return this.http.delete(this.URL+"/api/product/"+id, this.httpOptionsAuth);
-  }
-
-  public uploadImageProduct(id:Number, body:any){
-    return this.http.post(this.URL+"/api/product/"+id+"/image", body, this.httpOptionsAuth);
-  }
-
-  public deleteImageProduct(id:Number, idimage:Number){
-    return this.http.delete(this.URL+"/api/product/"+id+"/image/"+idimage, this.httpOptionsAuth);
-  }
 }

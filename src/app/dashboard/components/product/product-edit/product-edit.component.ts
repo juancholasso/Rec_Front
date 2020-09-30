@@ -48,7 +48,7 @@ export class ProductEditComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       id: [id, [Validators.required]],
       name: [name,  [Validators.required, Validators.maxLength(100)]],
-      points: [points,  [Validators.required, Validators.max(1000)]],
+      points: [points,  [Validators.required, Validators.max(99999)]],
       description: [description, [Validators.required]],
       state : [state, [Validators.required]],
       quantity : [quantity, [Validators.required, Validators.max(1000)]]

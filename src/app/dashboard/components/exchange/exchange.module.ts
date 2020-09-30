@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExchangeRoutingModule } from './exchange.routing';
 import { ExchangeComponent } from './exchange.component';
-// import { ProductCreateComponent } from './product-create/product-create.component';
-// import { ProductImageComponent } from './product-image/product-image.component';
+import { ExchangeSuccessComponent } from './exchange-success/exchange-success.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExchangeConfirmComponent } from './exchange-confirm/exchange-confirm.component';
@@ -11,7 +10,8 @@ import { ExchangeConfirmComponent } from './exchange-confirm/exchange-confirm.co
 @NgModule({
   declarations: [
     ExchangeComponent,
-    ExchangeConfirmComponent
+    ExchangeConfirmComponent,
+    ExchangeSuccessComponent
   ],
   imports: [
     CommonModule,

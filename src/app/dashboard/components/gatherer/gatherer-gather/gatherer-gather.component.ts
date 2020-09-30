@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ScheduleService } from '../../../../services/schedule.service';
+import { GathererService } from '../../../../services/gatherer.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { SweetAlertService } from '../../../../services/template/sweetalert.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -15,7 +15,7 @@ export class GathererGatherComponent implements OnInit {
   public createForm: FormGroup;
   
   constructor(
-    private scheduleService:ScheduleService,
+    private gathererService:GathererService,
     private spinner: NgxSpinnerService,
     private sweetAlert: SweetAlertService,
     private formBuilder: FormBuilder,
@@ -28,10 +28,9 @@ export class GathererGatherComponent implements OnInit {
 
     this.createForm = this.formBuilder.group({
       iduser_client: [iduser_client,  [Validators.required]],
-      iduser_recolector: [iduser_recolector,  [Validators.required]],
       description: ['',  [Validators.required]],
       weight: ['',  [Validators.required]],
-      state: ['finalizada',[Validators.required]]
+      state: ['finished',[Validators.required]]
     });
   }
 
@@ -40,6 +39,32 @@ export class GathererGatherComponent implements OnInit {
   }
 
   public async createGather(form:FormGroup){
+    this.spinner.show();
+    this.gathererService.createGatherer(form.value)
+    .subscribe(
+      (data:any)=>{
+        this.sweetAlert.showBasicInfoSwal(
+          "¡Registro de Recolección Exitosa",
+          "Se ha finalizado la recolección y se le han asignado los puntos al usuario",
+          false,
+          "btn btn-success",
+          "success"
+        );
+        this.router.navigate(['gatherer/calendar'])
+        this.spinner.hide();
+      },
+      (err:any)=>{
+        console.log(err)
+        this.sweetAlert.showBasicInfoSwal(
+          "UPS, Algo salió mal!",
+          "¡Intente más tarde!",
+          false,
+          "btn btn-success",
+          "warning"
+        );
+        this.spinner.hide();
+      }
+    )
   }
 
 }

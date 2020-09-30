@@ -35,7 +35,10 @@ export class GathererCalendarComponent implements OnInit {
         console.log(event)
         this.sweetAlert.showMessageAndButtonCallbackSwal(
           "Cita agendada para recolección",
-          dateStartString+"<br>Usuario Cliente: "+event.event.extendedProps.idclient,
+          dateStartString+"<br>Usuario Cliente: "+event.event.extendedProps.idclient+
+          "<br> Departamento: "+event.event.extendedProps.schedule.department+
+          "<br> Ciudad: "+event.event.extendedProps.schedule.city+
+          "<br> Dirección: "+event.event.extendedProps.schedule.address,
           "Validar Recolección",
           (res:Boolean)=>{
             if(!res){
@@ -62,9 +65,10 @@ export class GathererCalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.scheduleService.getSchedulesAssigned().subscribe(
+    this.scheduleService.getLatestchedulesAssigned().subscribe(
       (data:any)=>{
         this.schedulesAssigned = data.map((item)=>{
+          this.spinner.show();
           return {
             title: (item.startdate).split(" ")[1],
             date: item.startdate,
