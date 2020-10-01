@@ -12,7 +12,7 @@ export class ExchangeService extends Service{
   }
 
   public getProducts(queries:String){
-    return this.http.get(this.URL+"/api/product?"+queries, this.httpOptionsAuth);
+    return this.http.get(this.URL+"/api/store/products?"+queries, this.httpOptionsAuth);
   }
 
   public buy(body:any){

@@ -62,7 +62,7 @@ export class ExchangeConfirmComponent implements OnInit {
         start: 1,
         connect: [true,false],
         range: {
-            min: 1,
+            min: 0,
             max: parseInt(quantity)
         }
     });

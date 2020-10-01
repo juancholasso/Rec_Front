@@ -26,7 +26,7 @@
                 {{product.description}}
               </p>
               <h5 class="card-category">{{product.quantity}} unidades disponibles</h5>
-              <button href="#pablo" (click)="generateOrder(product)" class="btn btn-rose btn-round">Canjear Ahora</button>
+              <button href="#pablo" [disabled]="product.points > points" (click)="generateOrder(product)" class="btn btn-rose btn-round">Canjear Ahora</button>
             </div>
           </div>
         </div>
