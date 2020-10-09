@@ -38,4 +38,8 @@ export class ProductService extends Service{
   public deleteImageProduct(id:Number, idimage:Number){
     return this.http.delete(this.URL+"/api/product/"+id+"/image/"+idimage, this.httpOptionsAuth);
   }
+
+  public setImagePrincipal(id:Number, body:any){
+    return this.http.post(this.URL+"/api/product/"+id+"/imageprincipal", body, this.httpOptionsAuth);
+  }
 }

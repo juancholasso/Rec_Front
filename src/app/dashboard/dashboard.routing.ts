@@ -63,6 +63,20 @@ const authRoutes: Routes = [
         data: { 
           expectedRole: 'cliente'
         }
+      },
+    ],
+  },
+  {
+    path: 'admin',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'invoices',
+        loadChildren: () => import('./components/admin/invoices/invoices.module').then(m => m.InvoicesModule),
+        canActivate: [RoleGuard], 
+        data: { 
+          expectedRole: 'admin'
+        }
       }
     ]
   }

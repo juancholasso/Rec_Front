@@ -40,6 +40,15 @@ background-size: cover; color: black; background-blend-mode: multiply;" data-bac
     </div>
     <ul class="nav">
       <li class="nav-item " *ngIf="can('admin')">
+        <a class="nav-link" data-toggle="collapse" [routerLink]="['/home']">
+          <i class="material-icons">home</i>
+          <p>Home
+          </p>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav">
+      <li class="nav-item " *ngIf="can('admin')">
         <a class="nav-link" data-toggle="collapse" href="#productTypes">
           <i class="material-icons">title</i>
           <p>Tipos de Producto
@@ -104,6 +113,48 @@ background-size: cover; color: black; background-blend-mode: multiply;" data-bac
             </li>
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/product']">
+                <span class="sidebar-mini"> L </span>
+                <span class="sidebar-normal"> Listar </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item " *ngIf="can('admin')">
+        <a class="nav-link" data-toggle="collapse" href="#invoices">
+          <i class="material-icons">receipt</i>
+          <p>Facturas
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="invoices">
+          <ul class="nav">
+            <li class="nav-item ">
+              <a class="nav-link" [routerLink]="['/admin/invoices']">
+                <span class="sidebar-mini"> L </span>
+                <span class="sidebar-normal"> Lista </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item " *ngIf="can('admin')">
+        <a class="nav-link" data-toggle="collapse" href="#gatherer">
+          <i class="material-icons">how_to_reg</i>
+          <p>Recolectores
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="gatherer">
+          <ul class="nav">
+            <li class="nav-item ">
+              <a class="nav-link" [routerLink]="['/admin/invoices']">
+                <span class="sidebar-mini"> C </span>
+                <span class="sidebar-normal"> Crear </span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" [routerLink]="['/admin/invoices']">
                 <span class="sidebar-mini"> L </span>
                 <span class="sidebar-normal"> Listar </span>
               </a>

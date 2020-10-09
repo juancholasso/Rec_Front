@@ -77,7 +77,7 @@ export class ExchangeComponent implements OnInit {
   }
 
   public generateOrder(product:any){
-    this.router.navigate(['exchange/confirm', product]);
+    this.router.navigate(['exchange/confirm', {"data":JSON.stringify(product)}]);
   }
 
 }

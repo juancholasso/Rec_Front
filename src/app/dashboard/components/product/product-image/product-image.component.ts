@@ -82,6 +82,41 @@ export class ProductImageComponent implements OnInit {
         },
         (err:any)=>{
           this.spinner.hide();
+          this.sweetAlert.showBasicInfoSwal(
+            "¡Ha ocurrido un error!",
+            "Por favor intente más tarde",
+            false,
+            "btn btn-success",
+            "warning"
+          );
+          console.log(err);
+        }
+      )
+    }
+    catch(exception){
+      this.spinner.hide();
+    }
+  }
+
+  public setImagePrincipal(path){
+    try{
+      var body ={
+        "path":path
+      };
+      this.spinner.show();
+      this.productService.setImagePrincipal(this.idproduct, body).subscribe(
+        (data:any)=>{
+          this.spinner.hide();
+        },
+        (err:any)=>{
+          this.spinner.hide();
+          this.sweetAlert.showBasicInfoSwal(
+            "¡Ha ocurrido un error!",
+            "Por favor intente más tarde",
+            false,
+            "btn btn-success",
+            "warning"
+          );
           console.log(err);
         }
       )

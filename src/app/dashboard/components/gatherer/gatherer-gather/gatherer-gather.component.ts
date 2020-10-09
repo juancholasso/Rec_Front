@@ -24,10 +24,11 @@ export class GathererGatherComponent implements OnInit {
   ) 
   {
     var iduser_client = this.route.snapshot.paramMap.get('iduser_client');
-    var iduser_recolector = this.route.snapshot.paramMap.get('iduser_recolector');
+    var idschedule = this.route.snapshot.paramMap.get('id');
 
     this.createForm = this.formBuilder.group({
       iduser_client: [iduser_client,  [Validators.required]],
+      idschedule: [idschedule,  [Validators.required]],
       description: ['',  [Validators.required]],
       weight: ['',  [Validators.required]],
       state: ['finished',[Validators.required]]

@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
 
 export class Service{
 
-    public URL:string = "http://localhost:8000";
-    // public URL:string = "https://recbackend.destinysoftware.com.co/";
+    // public URL:string = "http://localhost:8000";
+    public URL:string = "https://recbackend.destinysoftware.com.co";
 
     public httpOptions = {
             headers: new HttpHeaders({ 

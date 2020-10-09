@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ExchangeService } from '../../../../services/exchange.service';
 import { TypeProductService } from '../../../../services/type-product.service';
+import { ClientService } from '../../../../services/client.service';
 
 declare var noUiSlider: any;
 declare var sliderRegular: any;
@@ -26,6 +27,8 @@ export class ExchangeConfirmComponent implements OnInit {
   public priceProduct = "";
   public insufficientFunds = false;
   public funds = 0;
+  public product:any;
+  public URL:String = "";
 
   constructor(
     private productService:ProductService,
@@ -36,47 +39,73 @@ export class ExchangeConfirmComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
+    private clientService:ClientService,
   ) 
   {
+    this.URL = this.exchangeService.URL;
     this.createForm = this.formBuilder.group({
     });
   }
 
   ngOnInit(): void {
-    var slider = document.getElementById('sliderRegular');
-    var quantity = this.route.snapshot.paramMap.get('quantity');
+    this.spinner.show();
 
-    this.funds = JSON.parse(localStorage.getItem('points')).points;
-    this.nameProduct = this.route.snapshot.paramMap.get('name');
-    this.priceProduct = this.route.snapshot.paramMap.get('points');
+    var data = JSON.parse(this.route.snapshot.paramMap.get('data'));
+    this.product = data;
+
+    this.nameProduct = data.name;
+    this.priceProduct = data.points;
     this.totalPrice = parseInt(this.priceProduct)
 
-    if(this.totalPrice > this.funds){
-      this.insufficientFunds = true;
-    }
-    else{
-      this.insufficientFunds = false;
-    }
+    var slider = document.getElementById('sliderRegular');
+    var quantity = data.quantity;
 
-    noUiSlider.create(slider, {
-        start: 1,
-        connect: [true,false],
-        range: {
-            min: 0,
-            max: parseInt(quantity)
+    this.clientService.getProfile()
+    .subscribe(
+      (data:any)=>{
+        this.funds = data.points.points;
+
+        if(this.totalPrice > this.funds){
+          this.insufficientFunds = true;
         }
-    });
+        else{
+          this.insufficientFunds = false;
+        }
+    
+        noUiSlider.create(slider, {
+            start: 1,
+            connect: [true,false],
+            range: {
+                min: 0,
+                max: parseInt(quantity)
+            }
+        });
+    
+        sliderRegular.noUiSlider.on('change', (event)=>{
+          this.countSlider = parseInt(event[0]);
+          this.totalPrice = parseInt(event[0])*parseInt(this.priceProduct);
+          if(this.totalPrice > this.funds){
+            this.insufficientFunds = true;
+          }
+          else{
+            this.insufficientFunds = false;
+          }
+        });
+        this.spinner.hide();
+      },
+      (err:any)=>{
 
-    sliderRegular.noUiSlider.on('change', (event)=>{
-      this.countSlider = parseInt(event[0]);
-      this.totalPrice = parseInt(event[0])*parseInt(this.priceProduct);
-      if(this.totalPrice > this.funds){
-        this.insufficientFunds = true;
+        console.log(err);
+        this.sweetAlert.showBasicInfoSwal(
+          "¡Ha ocurrido un error!",
+          "Por favor intente más tarde",
+          false,
+          "btn btn-success",
+          "warning"
+        );
+        this.spinner.hide();
       }
-      else{
-        this.insufficientFunds = false;
-      }
-    });
+    )
 
   }
 
@@ -84,7 +113,7 @@ export class ExchangeConfirmComponent implements OnInit {
     this.spinner.show();
     var body ={
       "points":this.totalPrice,
-      "products":[[this.route.snapshot.paramMap.get('id'),this.countSlider]]
+      "products":[[this.product.id,this.countSlider]]
     }
     this.exchangeService.buy(body)
     .subscribe(

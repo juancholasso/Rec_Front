@@ -24,9 +24,18 @@
                 margin-bottom: 30px;">
                     <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                         <div class="fileinput-new thumbnail">
-                            <img src="{{URL+'public/'+image.path}}" alt="...">
+                            <img src="{{URL+'/public/'+image.path}}" alt="...">
                         </div>
                         <div>
+                            <div class="form-check form-check-radio">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" [checked]="image.path == product.imageprincipal" type="radio" name="principal" id="{{image.id}}" (change)="setImagePrincipal(image.path)" value="option1" >
+                                    Principal
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
                             <button (click)="deleteImage(image.id)" class="btn btn-danger btn-round" data-dismiss="fileinput"><i class="fa fa-times"></i> Eliminar</button>
                         </div>
                     </div>

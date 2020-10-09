@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService } from '../../../../services/client.service';
+import { AdminService } from '../../../../services/admin.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { SweetAlertService } from '../../../../services/template/sweetalert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-invoices',
@@ -13,9 +14,10 @@ export class InvoicesComponent implements OnInit {
   public invoices:any = [];
 
   constructor(
-    private clientService:ClientService,
+    private adminService:AdminService,
     private spinner: NgxSpinnerService,
-    private sweetAlert: SweetAlertService
+    private sweetAlert: SweetAlertService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +26,7 @@ export class InvoicesComponent implements OnInit {
   }
 
   public getListInvoices(){
-    var request = this.clientService.getInvoices();
+    var request = this.adminService.getInvoices();
     request.subscribe(
       (data:any)=>{
         console.log(data)
@@ -44,5 +46,10 @@ export class InvoicesComponent implements OnInit {
       }
     )
   }
+
+  public editInvoice(invoice:any){
+    this.router.navigate(['admin/invoices/detail', {"data":JSON.stringify(invoice)} ]);
+  }
+
 
 }

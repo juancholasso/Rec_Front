@@ -8,7 +8,7 @@
             <div class="card-icon">
               <i class="material-icons">shopping_basket</i>
             </div>
-            <h4 class="card-title">Mis Pedidos</h4>
+            <h4 class="card-title">Facturas</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -29,9 +29,11 @@
                     <td class="text-center">{{invoice.id}}</td>
                     <td class="text-center">{{invoice.code}}</td>
                     <td class="text-center">{{invoice.points}}</td>
-                    <td>{{invoice.state}}</td>
+                    <td *ngIf="invoice.state == 'finished'">Finalizada</td>
+                    <td *ngIf="invoice.state == 'in_process'">En Proceso</td>
+                    <td *ngIf="invoice.state == 'generated'">Generada</td>
                     <td class="td-actions text-right">
-                      <a type="button" rel="tooltip" class="btn btn-success" [routerLink]="['/product/edit/', invoice]">
+                      <a type="button" rel="tooltip" class="btn btn-success" (click)="editInvoice(invoice)">
                         <i class="material-icons">edit</i>
                       </a>
                     </td>
