@@ -47,7 +47,7 @@
                               <div class="card-body ">
                                 <div class="form-group">
                                   <mat-form-field appearance="fill">
-                                    <input (click)="openDatePicker()" style="width: auto; display: inline;" placeholder="Seleccione la fecha" class="form-control" matInput [matDatepicker]="picker" [(ngModel)]="date" name="date" required>
+                                    <input (click)="openDatePicker()" [min]="minDate" style="width: auto; display: inline;" placeholder="Seleccione la fecha" class="form-control" matInput [matDatepicker]="picker" [(ngModel)]="date" name="date" required>
                                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                     <mat-datepicker #picker></mat-datepicker>
                                   </mat-form-field>    

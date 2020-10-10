@@ -40,6 +40,7 @@ export class ScheduleGenerateComponent implements OnInit {
     public address:any;
     public telephone:any;
     public page:number = 0;
+    public minDate = new Date();
 
     constructor(
         private productService:ProductService,
@@ -154,6 +155,11 @@ export class ScheduleGenerateComponent implements OnInit {
     }
 
     ngOnInit() {
+        var today = new Date()
+        var tomorrow = new Date()
+        tomorrow.setDate(new Date().getDate() + 1)
+        this.minDate = tomorrow;
+
         demo.initMaterialWizard();
         demo.initDashboardPageCharts();
         demo.initCharts();

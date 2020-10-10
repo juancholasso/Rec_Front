@@ -77,6 +77,14 @@ const authRoutes: Routes = [
         data: { 
           expectedRole: 'admin'
         }
+      },
+      {
+        path: 'recolector',
+        loadChildren: () => import('./components/admin/recolector/recolector.module').then(m => m.RecolectorModule),
+        canActivate: [RoleGuard], 
+        data: { 
+          expectedRole: 'admin'
+        }
       }
     ]
   }

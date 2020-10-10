@@ -1,0 +1,133 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 create-md">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">category</i>
+                    </div>
+                    <h4 class="card-title">Crear Recolector</h4>
+                    </div>
+                    <form [formGroup]="createForm" (ngSubmit)="createRecolector(createForm)">
+                        <div class="card-body">
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">email</i>
+                                    </span>
+                                    </div>
+                                    <input type="email" formControlName="email" class="form-control" placeholder="Email...">
+                                </div>
+                            </span>
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">lock_outline</i>
+                                    </span>
+                                    </div>
+                                    <input type="password" minlength="8" maxlength="16" formControlName="password" class="form-control" placeholder="Contraseña...">
+                                </div>
+                            </span>
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">accessibility</i>
+                                    </span>
+                                    </div>
+                                    <input type="text" formControlName="name" class="form-control" placeholder="Nombres...">
+                                </div>
+                            </span>
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">accessibility</i>
+                                    </span>
+                                    </div>
+                                    <input type="text" formControlName="lastname" class="form-control" placeholder="Apellidos...">
+                                </div>
+                            </span>
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">assignment_ind</i>
+                                    </span>
+                                    </div>
+                                    <input type="number" formControlName="identification" minlength="8" maxlength="12" class="form-control" placeholder="Identificación...">
+                                </div>
+                            </span>
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">home</i>
+                                    </span>
+                                    </div>
+                                    <input type="text" formControlName="address" required class="form-control" placeholder="Dirección...">
+                                </div>
+                            </span>
+                            <span class="bmd-form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="material-icons">public</i>
+                                        </span>
+                                        </div>
+                                        <input type="text" disabled formControlName="country" class="form-control" placeholder="País...">
+                                    </div>
+                            </span>
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">domain</i>
+                                    </span>
+                                    </div>
+                                    <div>
+                                    <select formControlName="department" class="form-control" data-style="btn btn-primary btn-round" (change)="loadCities()" data-size="7">
+                                        <option selected value="" disabled>Seleccione Departamento   </option>
+                                        <option *ngFor="let department of departaments" value="{{department}}">{{department}}</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </span>
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">location_city</i>
+                                    </span>
+                                    </div>
+                                    <div>
+                                    <select formControlName="city" class="form-control" data-style="btn btn-primary btn-round" data-size="7">
+                                        <option selected value="" disabled>Seleccione Ciudad   </option>
+                                        <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+                                    </select>
+                                    </div>                    
+                                </div>
+                            </span>
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">local_phone</i>
+                                    </span>
+                                    </div>
+                                    <input type="number" formControlName="telephone" minlength="8" maxlength="14" class="form-control" placeholder="Teléfono...">
+                                </div>
+                            </span>
+                        </div>
+                        <div class="card-footer ">
+                            <button [disabled]="createForm.invalid"  type="submit" class="btn btn-fill btn-rose">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
