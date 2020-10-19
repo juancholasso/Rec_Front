@@ -6,34 +6,35 @@
         <div class="card">
           <div class="card-header card-header-primary card-header-icon">
             <div class="card-icon">
-              <i class="material-icons">shopping_basket</i>
+              <i class="material-icons">assignment</i>
             </div>
-            <h4 class="card-title">Mis Pedidos</h4>
+            <h4 class="card-title">Proveedores</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>Fecha</th>
-                    <th class="text-center">Código</th>
-                    <th>Puntos</th>
-                    <th>Estado</th>
-                    <th>Fecha</th>
+                    <th class="text-center">ID</th>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
                     <th class="text-right">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let invoice of invoices">
-                    <td>{{ invoice.created_at | date:'medium' }}  </td>
-                    <td class="text-center">{{invoice.code}}</td>
-                    <td class="text-center">{{invoice.points}}</td>
-                    <td class="text-center">{{invoice.created_at}}</td>
-                    <td>{{invoice.state}}</td>
+                  <tr *ngFor="let provider of providers">
+                    <td class="text-center">{{provider.id}}</td>
+                    <td>{{provider.name}}</td>
+                    <td>{{provider.telephone}}</td>
+                    <td>{{provider.email}}</td>
                     <td class="td-actions text-right">
-                      <a type="button" rel="tooltip" class="btn btn-success" (click)="showInvoice(invoice)">
+                      <a type="button" rel="tooltip" class="btn btn-success" [routerLink]="['/provider/edit/', provider]">
                         <i class="material-icons">edit</i>
                       </a>
+                      <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteProvider(provider.id)">
+                        <i class="material-icons">close</i>
+                      </button>
                     </td>
                   </tr>
                 </tbody>

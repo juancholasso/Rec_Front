@@ -4,6 +4,7 @@ import { ExchangeComponent } from './exchange.component';
 import { ExchangeConfirmComponent } from './exchange-confirm/exchange-confirm.component';
 import { ExchangeSuccessComponent } from './exchange-success/exchange-success.component';
 import { ExchangeInvoicesComponent } from './exchange-invoices/exchange-invoices.component';
+import { ExchangeInvoicesDetailComponent } from './exchange-invoice-detail/exchange-invoice-detail.component';
 
 const Routes: Routes = [
   {
@@ -21,6 +22,10 @@ const Routes: Routes = [
   {
     path: 'invoices',
     component: ExchangeInvoicesComponent
+  },
+  {
+    path: 'invoices/detail',
+    component: ExchangeInvoicesDetailComponent
   }
 ];
 @NgModule({
