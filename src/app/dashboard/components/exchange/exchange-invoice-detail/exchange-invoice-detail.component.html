@@ -1,51 +1,224 @@
 <ngx-spinner></ngx-spinner>
 <div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header card-header-primary card-header-icon">
-            <div class="card-icon">
-              <i class="material-icons">shopping_basket</i>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 create-md">
+                <div class="card" *ngIf="invoice != undefined">
+                    <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">shopping_basket</i>
+                    </div>
+                    <h4 class="card-title">Orden # {{invoice.id}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <div id="accordion" role="tablist">
+                            <div class="card-collapse">
+                                <div class="card-header" role="tab" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+                                        Factura # {{invoice.code}}
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Fecha</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.created_at | date:'medium' }} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">ID Factura</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.id }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Codigo Factura</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.code }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Puntos</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.points }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Estado</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                    <p class="form-control" *ngIf="invoice.state == 'finished'">Finalizada</p>
+                                                    <p class="form-control" *ngIf="invoice.state == 'in_process'">En Progreso</p>
+                                                    <p class="form-control" *ngIf="invoice.state == 'generated'">Generada</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-collapse">
+                                <div class="card-header" role="tab" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Detalles
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card" *ngFor="let detail of invoice.details; let i = index">
+                                        <div class="card-header card-header-text card-header-primary">
+                                          <div class="card-text">
+                                            <h4 class="card-title">{{detail.product.name}}</h4>
+                                          </div>
+                                        </div>
+                                        <div class="card-body">
+                                            Cantidad: {{detail.quantity}}
+                                        </div>
+                                        <div class="card-body">
+                                            Proveedor: {{detail.product.provider.name}}
+                                        </div>
+                                        <div class="card-body">
+                                            Correo Proveedor: {{detail.product.provider.email}}
+                                        </div>
+                                        <div class="card-body">
+                                            Teléfono Proveedor: {{detail.product.provider.telephone}}
+                                        </div>
+                                        <div class="card-body">
+                                            Token: {{detail.token}}
+                                        </div>
+                                        <div class="card-body" *ngIf="detail.statetoken == 0">
+                                            Estado Pedido: Finalizado
+                                        </div>
+                                        <div class="card-body" *ngIf="detail.statetoken == 1">
+                                            Estado Token: Activo
+                                        </div>
+                                        <div class="card-body">
+                                            Cambiar Estado
+                                            <div class="form-check form-check-radio" (change)="setStateInvoiceDetail(invoice.id, detail.token, 1, i)">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="state" id="state1" value="1" [checked]="detail.statetoken == 1">
+                                                    Activo
+                                                    <span class="circle">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-radio" (change)="setStateInvoiceDetail(invoice.id, detail.token, 0, i)">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="state" id="state0" value="0" [checked]="detail.statetoken == 0">
+                                                    Finalizado
+                                                    <span class="circle">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-collapse">
+                                <div class="card-header" role="tab" id="headingThree">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Usuario
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">ID</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.id }} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Identificación</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.identification  }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Nombre</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.name  }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Apellido</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.lastname }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">País</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.country }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Departamento</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.department  }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Ciudad</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.city }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Dirección</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.address }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Teléfono</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.telephone }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h4 class="card-title">Mis Pedidos</h4>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Fecha</th>
-                    <th class="text-center">ID</th>
-                    <th class="text-center">Código</th>
-                    <th>Puntos</th>
-                    <th>Estado</th>
-                    <th class="text-right">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let invoice of invoices">
-                    <td>{{ invoice.created_at | date:'medium' }}  </td>
-                    <td class="text-center">{{invoice.id}}</td>
-                    <td class="text-center">{{invoice.code}}</td>
-                    <td class="text-center">{{invoice.points}}</td>
-                    <td>{{invoice.state}}</td>
-                    <td class="td-actions text-right">
-                      <a type="button" rel="tooltip" class="btn btn-success" [routerLink]="['/product/edit/', invoice]">
-                        <i class="material-icons">edit</i>
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- end content-->
         </div>
-        <!--  end card  -->
-      </div>
-      <!-- end col-md-12 -->
     </div>
-    <!-- end row -->
-  </div>
 </div>

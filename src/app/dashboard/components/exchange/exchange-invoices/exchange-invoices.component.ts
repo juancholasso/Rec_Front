@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../../../services/client.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { SweetAlertService } from '../../../../services/template/sweetalert.service';
+import { Router, ActivatedRoute, ParamMap, convertToParamMap } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-exchange-invoices',
@@ -15,7 +17,10 @@ export class ExchangeInvoicesComponent implements OnInit {
   constructor(
     private clientService:ClientService,
     private spinner: NgxSpinnerService,
-    private sweetAlert: SweetAlertService
+    private sweetAlert: SweetAlertService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +48,10 @@ export class ExchangeInvoicesComponent implements OnInit {
         this.spinner.hide();
       }
     )
+  }
+
+  public showInvoice(invoice:any){
+    this.router.navigate(['exchange/invoices/detail', JSON.stringify({"data":invoice})])
   }
 
 }

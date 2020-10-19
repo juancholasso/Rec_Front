@@ -81,7 +81,7 @@
                                     <div class="card" *ngFor="let detail of invoice.details; let i = index">
                                         <div class="card-header card-header-text card-header-primary">
                                           <div class="card-text">
-                                            <h4 class="card-title">{{detail.product.name}}t</h4>
+                                            <h4 class="card-title">{{detail.product.name}}</h4>
                                           </div>
                                         </div>
                                         <div class="card-body">
@@ -131,17 +131,88 @@
                             </div>
                             <div class="card-collapse">
                                 <div class="card-header" role="tab" id="headingThree">
-                                <h5 class="mb-0">
-                                    <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Usuario
-                                    <i class="material-icons">keyboard_arrow_down</i>
-                                    </a>
-                                </h5>
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Usuario
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                        </a>
+                                    </h5>
                                 </div>
                                 <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-                                <div class="card-body">
-                                    Informacion Usuario
-                                </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">ID</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.id }} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Identificación</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.identification  }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Nombre</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.name  }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Apellido</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.lastname }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">País</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.country }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Departamento</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.department  }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Ciudad</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.city }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Dirección</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.address }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-sm-2 col-form-label">Teléfono</label>
+                                            <div class="col-sm-10">
+                                                <div class="form-group">
+                                                <p class="form-control">{{ invoice.user.telephone }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

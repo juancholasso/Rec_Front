@@ -7,13 +7,15 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExchangeConfirmComponent } from './exchange-confirm/exchange-confirm.component';
 import { ExchangeInvoicesComponent } from './exchange-invoices/exchange-invoices.component';
+import { ExchangeInvoicesDetailComponent } from './exchange-invoice-detail/exchange-invoice-detail.component';
 
 @NgModule({
   declarations: [
     ExchangeComponent,
     ExchangeConfirmComponent,
     ExchangeSuccessComponent,
-    ExchangeInvoicesComponent
+    ExchangeInvoicesComponent,
+    ExchangeInvoicesDetailComponent
   ],
   imports: [
     CommonModule,
