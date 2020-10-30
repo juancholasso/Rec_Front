@@ -16681,6 +16681,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .main-panel {
+
   position: relative;
   float: right;
   width: calc(100% - 260px);
@@ -20430,7 +20431,7 @@ thead.thead-inverse th,
 }
 
 .footer .copyright {
-  padding: 15px 0;
+  padding: 65px 30px;
 }
 
 .footer .copyright .material-icons {
@@ -26909,7 +26910,7 @@ select.selectpicker {
 }
 
 .footer .copyright {
-  padding: 15px 0;
+  padding: 0px 0;
 }
 
 .footer .copyright .material-icons {
