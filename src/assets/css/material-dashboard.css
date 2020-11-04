@@ -6417,7 +6417,13 @@ button.bg-dark:focus {
   align-self: stretch !important;
 }
 
+@media (min-width: 500px) {
+  .logo-login{
+    margin-left: 140px;
+  }
+
 @media (min-width: 576px) {
+  
   .flex-sm-row {
     flex-direction: row !important;
   }
@@ -6802,6 +6808,7 @@ button.bg-dark:focus {
 }
 
 @media (min-width: 768px) {
+  
   .float-md-left {
     float: left !important;
   }
@@ -6814,6 +6821,8 @@ button.bg-dark:focus {
 }
 
 @media (min-width: 992px) {
+  
+  
   .float-lg-left {
     float: left !important;
   }
@@ -6826,6 +6835,7 @@ button.bg-dark:focus {
 }
 
 @media (min-width: 1200px) {
+  
   .float-xl-left {
     float: left !important;
   }
@@ -7257,6 +7267,10 @@ button.bg-dark:focus {
 }
 
 @media (min-width: 576px) {
+
+  .logo-login{
+    margin-left: 160px;
+  }
   .m-sm-0 {
     margin: 0 !important;
   }
@@ -7507,6 +7521,9 @@ button.bg-dark:focus {
 }
 
 @media (min-width: 768px) {
+  .logo-login{
+    margin-left: 254px;
+  }
   .m-md-0 {
     margin: 0 !important;
   }
