@@ -27,7 +27,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: 'Comfortaa', cursive;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -45,7 +45,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 
 body {
   margin: 0;
-  font-family: 'Prompt', sans-serif;
+  font-family: 'Comfortaa', cursive;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -174,7 +174,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+ font-family: 'Comfortaa', cursive;
   font-size: 1em;
 }
 
@@ -234,7 +234,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
+  font-family: 'Comfortaa', cursive;
   font-size: inherit;
   line-height: inherit;
 }
@@ -415,7 +415,7 @@ template {
 }
 
 html {
-  font-family: sans-serif;
+ font-family: 'Comfortaa', cursive;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -433,7 +433,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 
 body {
   margin: 0;
- font-family: 'Prompt', sans-serif;
+font-family: 'Comfortaa', cursive;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -562,7 +562,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+ font-family: 'Comfortaa', cursive;
   font-size: 1em;
 }
 
@@ -622,7 +622,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
+  font-family: 'Comfortaa', cursive;
   font-size: inherit;
   line-height: inherit;
 }
@@ -733,7 +733,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: inherit;
+ font-family: 'Comfortaa', cursive;
   font-weight: 400;
   line-height: 1.2;
   color: inherit;
@@ -882,7 +882,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: 'Comfortaa', cursive;
 }
 
 code {
@@ -5388,7 +5388,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Comfortaa', cursive;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5501,7 +5501,7 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Comfortaa', cursive;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -14602,7 +14602,7 @@ html * {
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Comfortaa', cursive;
   font-weight: 300;
   line-height: 1.5em;
 }
@@ -17480,7 +17480,7 @@ legend {
 }
 
 .serif-font {
-  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-family: 'Comfortaa', cursive;
 }
 
 * {
@@ -20654,7 +20654,7 @@ thead.thead-inverse th,
 }
 
 .media .media-heading small {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Comfortaa', cursive;
 }
 
 .media .media-body {
@@ -21306,7 +21306,7 @@ body.swal2-iosfix {
 
 .swal2-modal {
   background-color: #fff;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Comfortaa', cursive;
   border-radius: 5px;
   box-sizing: border-box;
   text-align: center;
@@ -21405,7 +21405,7 @@ body.swal2-iosfix {
 .swal2-modal .swal2-close {
   font-size: 36px;
   line-height: 36px;
-  font-family: serif;
+  font-family: 'Comfortaa', cursive;
   position: absolute;
   top: 5px;
   right: 13px;
@@ -21700,7 +21700,7 @@ body.swal2-iosfix {
 }
 
 .swal2-icon.swal2-warning {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Comfortaa', cursive;
   color: #f8bb86;
   border-color: #facea8;
   font-size: 60px;
@@ -21709,7 +21709,7 @@ body.swal2-iosfix {
 }
 
 .swal2-icon.swal2-info {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Comfortaa', cursive;
   color: #3fc3ee;
   border-color: #9de0f6;
   font-size: 60px;
@@ -21718,7 +21718,7 @@ body.swal2-iosfix {
 }
 
 .swal2-icon.swal2-question {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Comfortaa', cursive;
   color: #87adbd;
   border-color: #c9dae1;
   font-size: 60px;
@@ -22467,7 +22467,7 @@ table.dataTable thead .sorting_desc_disabled:after {
   display: inline-block;
   bottom: 1px;
   right: -7px;
-  font-family: 'FontAwesome';
+  font-family: 'Comfortaa', cursive;
   opacity: 0.8;
   font-size: 12px;
 }
@@ -22551,7 +22551,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
   box-shadow: 0 0 3px #444;
   box-sizing: content-box;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Comfortaa', cursive;
   line-height: 18px;
   content: '+';
   background-color: #FFF;
@@ -22605,7 +22605,7 @@ table.dataTable.dtr-column > tbody > tr > th.control:before {
   box-shadow: 0 0 3px #444;
   box-sizing: content-box;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Comfortaa', cursive;
   line-height: 14px;
   content: '+';
   background-color: #31b131;
@@ -23332,7 +23332,7 @@ body .fc {
   font-size: 1em;
   text-align: center;
   overflow: hidden;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Comfortaa', cursive;
   /* don't allow browser text-selection */
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -24555,7 +24555,7 @@ be a descendant of the grid when it is being dragged.
   overflow: hidden;
   line-height: 8px;
   font-size: 11px;
-  font-family: monospace;
+  font-family: 'Comfortaa', cursive;
   text-align: center;
   cursor: s-resize;
 }
@@ -26594,7 +26594,8 @@ select.selectpicker {
 }
 
 .login-page .page-header .container {
-  padding-top: 23vh;
+  padding-top: 20vh;
+  padding-bottom: 20vh;
 }
 
 .login-page .footer .container {
