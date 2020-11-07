@@ -24,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -89,7 +89,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "FrontendInalambria"
+  "defaultProject": "FrontendInalambria",
+  "cli": {
+    "analytics": "d21416de-0988-4789-b7b4-2337c06fffcc"
+  }
 }
