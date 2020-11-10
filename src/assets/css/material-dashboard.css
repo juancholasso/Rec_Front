@@ -17972,7 +17972,7 @@ a[aria-expanded="true"] .caret,
 
 .wrapper.wrapper-full-page {
   height: auto;
-  min-height: 100vh;
+  min-height: 250vh;
 }
 
 .full-page:after, .full-page:before {
@@ -19848,7 +19848,7 @@ thead.thead-inverse th,
   background-position: center center;
   background-size: cover;
   margin: 0;
-  padding: 0;
+  padding-bottom: 150px;
   border: 0;
   display: flex;
   align-items: center;
@@ -26578,6 +26578,7 @@ select.selectpicker {
 
 .login-page .page-header .container {
   padding-top: 23vh;
+  padding-bottom: 17vh;
 }
 
 .login-page .footer .container {

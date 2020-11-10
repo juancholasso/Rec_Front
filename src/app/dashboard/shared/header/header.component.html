@@ -22,7 +22,7 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
           <ul class="nav">
             <li class="nav-item">
               <a class="nav-link">
-                <i class="material-icons">face</i>
+                <i class="material-icons">account_circle</i>
                 <span class="sidebar-normal"> Mi Perfil </span>
               </a>
             </li>
@@ -39,7 +39,7 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
     <ul class="nav">
       <li class="nav-item " *ngIf="can('admin')">
         <a class="nav-link" data-toggle="collapse" [routerLink]="['/home']">
-          <i class="material-icons">home</i>
+          <i class="material-icons">perm_identity</i>
           <p>Home
           </p>
         </a>
@@ -48,7 +48,7 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
     <ul class="nav">
       <li class="nav-item " *ngIf="can('admin')">
         <a class="nav-link" data-toggle="collapse" href="#productTypes">
-          <i class="material-icons">title</i>
+          <i class="material-icons">style</i>
           <p>Tipos de Producto
             <b class="caret"></b>
           </p>
@@ -57,13 +57,13 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
           <ul class="nav">
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/typeproduct/create']">
-                <span class="sidebar-mini"> C </span>
+                <span class="sidebar-mini"><i class="material-icons">design_services</i></span>
                 <span class="sidebar-normal"> Crear </span>
               </a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/typeproduct']">
-                <span class="sidebar-mini"> L </span>
+                <span class="sidebar-mini"><i class="material-icons">local_offer</i></span>
                 <span class="sidebar-normal"> Listar </span>
               </a>
             </li>
@@ -81,13 +81,13 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
           <ul class="nav">
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/provider/create']">
-                <span class="sidebar-mini"> C </span>
+                <span class="sidebar-mini"><i class="material-icons">design_services</i></span>
                 <span class="sidebar-normal"> Crear </span>
               </a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/provider']">
-                <span class="sidebar-mini"> L </span>
+                <span class="sidebar-mini"><i class="material-icons">local_offer</i></span>
                 <span class="sidebar-normal"> Listar </span>
               </a>
             </li>
@@ -105,13 +105,13 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
           <ul class="nav">
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/product/create']">
-                <span class="sidebar-mini"> C </span>
+                <span class="sidebar-mini"><i class="material-icons">design_services</i></span>
                 <span class="sidebar-normal"> Crear </span>
               </a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/product']">
-                <span class="sidebar-mini"> L </span>
+                <span class="sidebar-mini"><i class="material-icons">local_offer</i></span>
                 <span class="sidebar-normal"> Listar </span>
               </a>
             </li>
@@ -120,7 +120,7 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
       </li>
       <li class="nav-item " *ngIf="can('admin')">
         <a class="nav-link" data-toggle="collapse" href="#invoices">
-          <i class="material-icons">receipt</i>
+          <i class="material-icons">receipt_long</i>
           <p>Facturas
             <b class="caret"></b>
           </p>
@@ -129,7 +129,7 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
           <ul class="nav">
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/admin/invoices']">
-                <span class="sidebar-mini"> L </span>
+                <span class="sidebar-mini"><i class="material-icons">local_offer</i></span>
                 <span class="sidebar-normal"> Lista </span>
               </a>
             </li>
@@ -147,13 +147,13 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
           <ul class="nav">
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/admin/recolector/create']">
-                <span class="sidebar-mini"> C </span>
+                <span class="sidebar-mini"><i class="material-icons">design_services</i></span>
                 <span class="sidebar-normal"> Crear </span>
               </a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/admin/recolector']">
-                <span class="sidebar-mini"> L </span>
+                <span class="sidebar-mini"><i class="material-icons">local_offer</i></span>
                 <span class="sidebar-normal"> Listar </span>
               </a>
             </li>
@@ -162,7 +162,7 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
       </li>
       <li class="nav-item " *ngIf="can('cliente')">
         <a class="nav-link" data-toggle="collapse" href="#recycle">
-          <i class="material-icons">wifi_protected_setup</i>
+          <i class="material-icons">eco</i>
           <p>Recicla
             <b class="caret"></b>
           </p>
@@ -171,13 +171,13 @@ background-size: cover; color: black; background-blend-mode: lighten;" data-back
           <ul class="nav">
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/recycle/schedule/generate']">
-                <span class="sidebar-mini"> GC </span>
+                <span class="sidebar-mini"><i class="material-icons">event</i></span>
                 <span class="sidebar-normal"> Generar Cita </span>
               </a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['/recycle/schedule/calendar']">
-                <span class="sidebar-mini"> VC </span>
+                <span class="sidebar-mini"><i class="material-icons">visibility</i></span>
                 <span class="sidebar-normal"> Ver Citas </span>
               </a>
             </li>
